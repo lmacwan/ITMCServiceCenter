@@ -1,0 +1,1939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ITMCService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITMCServiceCenter.Web.Domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IITMCService_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUsersByDesignationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByDesignationId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUsersByDesignationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByDesignationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUsersByRoleId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByRoleId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUsersByRoleId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByRoleIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUserByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserName" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUserByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUser" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetEngineers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEngineers" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetEngineers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEngineersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveEngineers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEngineers" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveEngineers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEngineersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjects" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProject" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProject" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProject" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProject" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectDocument" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectDocumentByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectDocumentByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectDocumentByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectDocumentByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTasks" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTask" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProjectTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectTask" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProjectTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateProjectTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectTask" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateProjectTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteProjectTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProjectTask" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteProjectTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProjectTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskActions" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskActionByTaskId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskActionByTaskId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskActionByTaskId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskActionByTaskIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProjectTaskAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectTaskAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProjectTaskAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectTaskActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskDocument" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskDocumentByProjectTaskId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskDocumentByProjectTaskId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskDocumentByProjectTaskId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskDocumentByProjectTaskIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProjectTaskType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectTaskType" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveProjectTaskType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectTaskTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestsByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestsByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestsByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestsByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequests" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveChangeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangeRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveChangeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateChangeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChangeRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateChangeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChangeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteChangeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChangeRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteChangeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChangeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestActionsByRequestId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestActionsByRequestId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestActionsByRequestId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestActionsByRequestIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestActions" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveChangeRequestAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangeRequestAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveChangeRequestAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangeRequestActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestDocumentsByRequestId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestDocumentsByRequestId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestDocumentsByRequestId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestDocumentsByRequestIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestDocument" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetChangeRequestDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeRequestDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestsByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestsByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestsByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestsByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequests" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveServiceRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveServiceRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveServiceRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateServiceRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateServiceRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServiceRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteServiceRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteServiceRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServiceRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestActionsByRequestId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestActionsByRequestId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestActionsByRequestId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestActionsByRequestIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestActions" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveServiceRequestAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveServiceRequestAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveServiceRequestAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveServiceRequestActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestDocumentsByRequestId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestDocumentsByRequestId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestDocumentsByRequestId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestDocumentsByRequestIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestDocument" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetServiceRequestDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceRequestDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssuesByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssuesByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssues" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssue" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIssue" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIssue" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIssue" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueActionsByIssueId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueActionsByIssueId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueActionsByIssueId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueActionsByIssueIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueActions" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIssueAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIssueAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIssueAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIssueActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueDocumentsByIssueId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueDocumentsByIssueId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueDocumentsByIssueId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueDocumentsByIssueIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueDocument" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIssueDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidents" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncident_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncident" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncident_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIncident_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIncident" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIncident_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIncidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateIncident_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIncident" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateIncident_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIncidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteIncident_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIncident" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteIncident_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIncidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentActions" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentActionByIncidentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentActionByIncidentId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentActionByIncidentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentActionByIncidentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIncidentAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIncidentAction" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveIncidentAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveIncidentActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentDocument" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentDocumenByIncidentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentDocumenByIncidentId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetIncidentDocumenByIncidentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentDocumenByIncidentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClients" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClient" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeam" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeams" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveTeamWithMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTeamWithMembers" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_SaveTeamWithMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTeamWithMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTeam" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_UpdateTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeam" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_DeleteTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTeamMembersByTeamId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamMembersByTeamId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTeamMembersByTeamId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamMembersByTeamIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetEntitiesByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntitiesByType" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetEntitiesByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntitiesByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetEntityByTeamType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityByTeamType" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetEntityByTeamType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityByTeamTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTypeByEnum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeByEnum" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetTypeByEnum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeByEnumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetAllProjectTaskTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProjectTaskTypes" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetAllProjectTaskTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProjectTaskTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskTypesByProjectId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskTypesByProjectId" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskTypesByProjectId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskTypesByProjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskTypeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskTypeById" />
+  </wsdl:message>
+  <wsdl:message name="IITMCService_GetProjectTaskTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTaskTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IITMCService">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/AuthenticateUser" message="tns:IITMCService_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/AuthenticateUserResponse" message="tns:IITMCService_AuthenticateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByDesignationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetUsersByDesignationId" message="tns:IITMCService_GetUsersByDesignationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetUsersByDesignationIdResponse" message="tns:IITMCService_GetUsersByDesignationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByRoleId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetUsersByRoleId" message="tns:IITMCService_GetUsersByRoleId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetUsersByRoleIdResponse" message="tns:IITMCService_GetUsersByRoleId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetUserByUserName" message="tns:IITMCService_GetUserByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetUserByUserNameResponse" message="tns:IITMCService_GetUserByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetUser" message="tns:IITMCService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetUserResponse" message="tns:IITMCService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetUsers" message="tns:IITMCService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetUsersResponse" message="tns:IITMCService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveUser" message="tns:IITMCService_SaveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveUserResponse" message="tns:IITMCService_SaveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateUser" message="tns:IITMCService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateUserResponse" message="tns:IITMCService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteUser" message="tns:IITMCService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteUserResponse" message="tns:IITMCService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEngineers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetEngineers" message="tns:IITMCService_GetEngineers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetEngineersResponse" message="tns:IITMCService_GetEngineers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEngineers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveEngineers" message="tns:IITMCService_SaveEngineers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveEngineersResponse" message="tns:IITMCService_SaveEngineers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjects" message="tns:IITMCService_GetProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectsResponse" message="tns:IITMCService_GetProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProject" message="tns:IITMCService_GetProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectResponse" message="tns:IITMCService_GetProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveProject" message="tns:IITMCService_SaveProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveProjectResponse" message="tns:IITMCService_SaveProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateProject" message="tns:IITMCService_UpdateProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateProjectResponse" message="tns:IITMCService_UpdateProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteProject" message="tns:IITMCService_DeleteProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteProjectResponse" message="tns:IITMCService_DeleteProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectDocuments" message="tns:IITMCService_GetProjectDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectDocumentsResponse" message="tns:IITMCService_GetProjectDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectDocument" message="tns:IITMCService_GetProjectDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectDocumentResponse" message="tns:IITMCService_GetProjectDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectDocumentByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectDocumentByProjectId" message="tns:IITMCService_GetProjectDocumentByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectDocumentByProjectIdResponse" message="tns:IITMCService_GetProjectDocumentByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTasks" message="tns:IITMCService_GetProjectTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTasksResponse" message="tns:IITMCService_GetProjectTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTask" message="tns:IITMCService_GetProjectTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskResponse" message="tns:IITMCService_GetProjectTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskByProjectId" message="tns:IITMCService_GetProjectTaskByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskByProjectIdResponse" message="tns:IITMCService_GetProjectTaskByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveProjectTask" message="tns:IITMCService_SaveProjectTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveProjectTaskResponse" message="tns:IITMCService_SaveProjectTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateProjectTask" message="tns:IITMCService_UpdateProjectTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateProjectTaskResponse" message="tns:IITMCService_UpdateProjectTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProjectTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteProjectTask" message="tns:IITMCService_DeleteProjectTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteProjectTaskResponse" message="tns:IITMCService_DeleteProjectTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskActions" message="tns:IITMCService_GetProjectTaskActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskActionsResponse" message="tns:IITMCService_GetProjectTaskActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskAction" message="tns:IITMCService_GetProjectTaskAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskActionResponse" message="tns:IITMCService_GetProjectTaskAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskActionByTaskId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskActionByTaskId" message="tns:IITMCService_GetProjectTaskActionByTaskId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskActionByTaskIdResponse" message="tns:IITMCService_GetProjectTaskActionByTaskId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectTaskAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveProjectTaskAction" message="tns:IITMCService_SaveProjectTaskAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveProjectTaskActionResponse" message="tns:IITMCService_SaveProjectTaskAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskDocuments" message="tns:IITMCService_GetProjectTaskDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskDocumentsResponse" message="tns:IITMCService_GetProjectTaskDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskDocument" message="tns:IITMCService_GetProjectTaskDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskDocumentResponse" message="tns:IITMCService_GetProjectTaskDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskDocumentByProjectTaskId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskDocumentByProjectTaskId" message="tns:IITMCService_GetProjectTaskDocumentByProjectTaskId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskDocumentByProjectTaskIdResponse" message="tns:IITMCService_GetProjectTaskDocumentByProjectTaskId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectTaskType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveProjectTaskType" message="tns:IITMCService_SaveProjectTaskType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveProjectTaskTypeResponse" message="tns:IITMCService_SaveProjectTaskType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestsByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestsByProjectId" message="tns:IITMCService_GetChangeRequestsByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestsByProjectIdResponse" message="tns:IITMCService_GetChangeRequestsByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequests" message="tns:IITMCService_GetChangeRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestsResponse" message="tns:IITMCService_GetChangeRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequest" message="tns:IITMCService_GetChangeRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestResponse" message="tns:IITMCService_GetChangeRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangeRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveChangeRequest" message="tns:IITMCService_SaveChangeRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveChangeRequestResponse" message="tns:IITMCService_SaveChangeRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChangeRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateChangeRequest" message="tns:IITMCService_UpdateChangeRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateChangeRequestResponse" message="tns:IITMCService_UpdateChangeRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChangeRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteChangeRequest" message="tns:IITMCService_DeleteChangeRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteChangeRequestResponse" message="tns:IITMCService_DeleteChangeRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestActionsByRequestId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestActionsByRequestId" message="tns:IITMCService_GetChangeRequestActionsByRequestId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestActionsByRequestIdResponse" message="tns:IITMCService_GetChangeRequestActionsByRequestId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestActions" message="tns:IITMCService_GetChangeRequestActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestActionsResponse" message="tns:IITMCService_GetChangeRequestActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestAction" message="tns:IITMCService_GetChangeRequestAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestActionResponse" message="tns:IITMCService_GetChangeRequestAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangeRequestAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveChangeRequestAction" message="tns:IITMCService_SaveChangeRequestAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveChangeRequestActionResponse" message="tns:IITMCService_SaveChangeRequestAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestDocumentsByRequestId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestDocumentsByRequestId" message="tns:IITMCService_GetChangeRequestDocumentsByRequestId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestDocumentsByRequestIdResponse" message="tns:IITMCService_GetChangeRequestDocumentsByRequestId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestDocuments" message="tns:IITMCService_GetChangeRequestDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestDocumentsResponse" message="tns:IITMCService_GetChangeRequestDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestDocument" message="tns:IITMCService_GetChangeRequestDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetChangeRequestDocumentResponse" message="tns:IITMCService_GetChangeRequestDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestsByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestsByProjectId" message="tns:IITMCService_GetServiceRequestsByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestsByProjectIdResponse" message="tns:IITMCService_GetServiceRequestsByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequests" message="tns:IITMCService_GetServiceRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestsResponse" message="tns:IITMCService_GetServiceRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequest" message="tns:IITMCService_GetServiceRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestResponse" message="tns:IITMCService_GetServiceRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveServiceRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveServiceRequest" message="tns:IITMCService_SaveServiceRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveServiceRequestResponse" message="tns:IITMCService_SaveServiceRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateServiceRequest" message="tns:IITMCService_UpdateServiceRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateServiceRequestResponse" message="tns:IITMCService_UpdateServiceRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteServiceRequest" message="tns:IITMCService_DeleteServiceRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteServiceRequestResponse" message="tns:IITMCService_DeleteServiceRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestActionsByRequestId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestActionsByRequestId" message="tns:IITMCService_GetServiceRequestActionsByRequestId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestActionsByRequestIdResponse" message="tns:IITMCService_GetServiceRequestActionsByRequestId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestActions" message="tns:IITMCService_GetServiceRequestActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestActionsResponse" message="tns:IITMCService_GetServiceRequestActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestAction" message="tns:IITMCService_GetServiceRequestAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestActionResponse" message="tns:IITMCService_GetServiceRequestAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveServiceRequestAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveServiceRequestAction" message="tns:IITMCService_SaveServiceRequestAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveServiceRequestActionResponse" message="tns:IITMCService_SaveServiceRequestAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestDocumentsByRequestId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestDocumentsByRequestId" message="tns:IITMCService_GetServiceRequestDocumentsByRequestId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestDocumentsByRequestIdResponse" message="tns:IITMCService_GetServiceRequestDocumentsByRequestId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestDocuments" message="tns:IITMCService_GetServiceRequestDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestDocumentsResponse" message="tns:IITMCService_GetServiceRequestDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestDocument" message="tns:IITMCService_GetServiceRequestDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetServiceRequestDocumentResponse" message="tns:IITMCService_GetServiceRequestDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuesByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssuesByProjectId" message="tns:IITMCService_GetIssuesByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssuesByProjectIdResponse" message="tns:IITMCService_GetIssuesByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssues" message="tns:IITMCService_GetIssues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssuesResponse" message="tns:IITMCService_GetIssues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssue" message="tns:IITMCService_GetIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueResponse" message="tns:IITMCService_GetIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveIssue" message="tns:IITMCService_SaveIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveIssueResponse" message="tns:IITMCService_SaveIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateIssue" message="tns:IITMCService_UpdateIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateIssueResponse" message="tns:IITMCService_UpdateIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteIssue" message="tns:IITMCService_DeleteIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteIssueResponse" message="tns:IITMCService_DeleteIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueActionsByIssueId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssueActionsByIssueId" message="tns:IITMCService_GetIssueActionsByIssueId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueActionsByIssueIdResponse" message="tns:IITMCService_GetIssueActionsByIssueId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssueActions" message="tns:IITMCService_GetIssueActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueActionsResponse" message="tns:IITMCService_GetIssueActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssueAction" message="tns:IITMCService_GetIssueAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueActionResponse" message="tns:IITMCService_GetIssueAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveIssueAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveIssueAction" message="tns:IITMCService_SaveIssueAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveIssueActionResponse" message="tns:IITMCService_SaveIssueAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueDocumentsByIssueId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssueDocumentsByIssueId" message="tns:IITMCService_GetIssueDocumentsByIssueId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueDocumentsByIssueIdResponse" message="tns:IITMCService_GetIssueDocumentsByIssueId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssueDocuments" message="tns:IITMCService_GetIssueDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueDocumentsResponse" message="tns:IITMCService_GetIssueDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIssueDocument" message="tns:IITMCService_GetIssueDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIssueDocumentResponse" message="tns:IITMCService_GetIssueDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidents" message="tns:IITMCService_GetIncidents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentsResponse" message="tns:IITMCService_GetIncidents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncident">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncident" message="tns:IITMCService_GetIncident_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentResponse" message="tns:IITMCService_GetIncident_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentByProjectId" message="tns:IITMCService_GetIncidentByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentByProjectIdResponse" message="tns:IITMCService_GetIncidentByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveIncident">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveIncident" message="tns:IITMCService_SaveIncident_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveIncidentResponse" message="tns:IITMCService_SaveIncident_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIncident">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateIncident" message="tns:IITMCService_UpdateIncident_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateIncidentResponse" message="tns:IITMCService_UpdateIncident_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIncident">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteIncident" message="tns:IITMCService_DeleteIncident_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteIncidentResponse" message="tns:IITMCService_DeleteIncident_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentActions" message="tns:IITMCService_GetIncidentActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentActionsResponse" message="tns:IITMCService_GetIncidentActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentAction" message="tns:IITMCService_GetIncidentAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentActionResponse" message="tns:IITMCService_GetIncidentAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentActionByIncidentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentActionByIncidentId" message="tns:IITMCService_GetIncidentActionByIncidentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentActionByIncidentIdResponse" message="tns:IITMCService_GetIncidentActionByIncidentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveIncidentAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveIncidentAction" message="tns:IITMCService_SaveIncidentAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveIncidentActionResponse" message="tns:IITMCService_SaveIncidentAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentDocuments" message="tns:IITMCService_GetIncidentDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentDocumentsResponse" message="tns:IITMCService_GetIncidentDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentDocument" message="tns:IITMCService_GetIncidentDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentDocumentResponse" message="tns:IITMCService_GetIncidentDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentDocumenByIncidentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetIncidentDocumenByIncidentId" message="tns:IITMCService_GetIncidentDocumenByIncidentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetIncidentDocumenByIncidentIdResponse" message="tns:IITMCService_GetIncidentDocumenByIncidentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetClients" message="tns:IITMCService_GetClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetClientsResponse" message="tns:IITMCService_GetClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveClient" message="tns:IITMCService_SaveClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveClientResponse" message="tns:IITMCService_SaveClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateClient" message="tns:IITMCService_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateClientResponse" message="tns:IITMCService_UpdateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteClient" message="tns:IITMCService_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteClientResponse" message="tns:IITMCService_DeleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetTeam" message="tns:IITMCService_GetTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetTeamResponse" message="tns:IITMCService_GetTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetTeams" message="tns:IITMCService_GetTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetTeamsResponse" message="tns:IITMCService_GetTeams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTeamWithMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/SaveTeamWithMembers" message="tns:IITMCService_SaveTeamWithMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/SaveTeamWithMembersResponse" message="tns:IITMCService_SaveTeamWithMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/UpdateTeam" message="tns:IITMCService_UpdateTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/UpdateTeamResponse" message="tns:IITMCService_UpdateTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/DeleteTeam" message="tns:IITMCService_DeleteTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/DeleteTeamResponse" message="tns:IITMCService_DeleteTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMembersByTeamId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetTeamMembersByTeamId" message="tns:IITMCService_GetTeamMembersByTeamId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetTeamMembersByTeamIdResponse" message="tns:IITMCService_GetTeamMembersByTeamId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntitiesByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetEntitiesByType" message="tns:IITMCService_GetEntitiesByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetEntitiesByTypeResponse" message="tns:IITMCService_GetEntitiesByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityByTeamType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetEntityByTeamType" message="tns:IITMCService_GetEntityByTeamType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetEntityByTeamTypeResponse" message="tns:IITMCService_GetEntityByTeamType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeByEnum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetTypeByEnum" message="tns:IITMCService_GetTypeByEnum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetTypeByEnumResponse" message="tns:IITMCService_GetTypeByEnum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjectTaskTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetAllProjectTaskTypes" message="tns:IITMCService_GetAllProjectTaskTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetAllProjectTaskTypesResponse" message="tns:IITMCService_GetAllProjectTaskTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskTypesByProjectId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskTypesByProjectId" message="tns:IITMCService_GetProjectTaskTypesByProjectId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskTypesByProjectIdResponse" message="tns:IITMCService_GetProjectTaskTypesByProjectId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskTypeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskTypeById" message="tns:IITMCService_GetProjectTaskTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IITMCService/GetProjectTaskTypeByIdResponse" message="tns:IITMCService_GetProjectTaskTypeById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IITMCService" type="tns:IITMCService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByDesignationId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetUsersByDesignationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByRoleId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetUsersByRoleId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserName">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetUserByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEngineers">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetEngineers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEngineers">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveEngineers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProject">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProject">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProject">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectDocuments">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectDocument">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectDocumentByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectDocumentByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTasks">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTask">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectTask">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveProjectTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectTask">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateProjectTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProjectTask">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteProjectTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskActions">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskActionByTaskId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskActionByTaskId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectTaskAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveProjectTaskAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskDocuments">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskDocument">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskDocumentByProjectTaskId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskDocumentByProjectTaskId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectTaskType">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveProjectTaskType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestsByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestsByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequests">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangeRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveChangeRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChangeRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateChangeRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChangeRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteChangeRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestActionsByRequestId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestActionsByRequestId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestActions">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangeRequestAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveChangeRequestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestDocumentsByRequestId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestDocumentsByRequestId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestDocuments">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeRequestDocument">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetChangeRequestDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestsByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestsByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequests">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveServiceRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveServiceRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateServiceRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceRequest">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteServiceRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestActionsByRequestId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestActionsByRequestId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestActions">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveServiceRequestAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveServiceRequestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestDocumentsByRequestId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestDocumentsByRequestId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestDocuments">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceRequestDocument">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetServiceRequestDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuesByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssuesByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssues">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssue">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveIssue">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIssue">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIssue">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueActionsByIssueId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssueActionsByIssueId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueActions">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssueActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssueAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveIssueAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveIssueAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueDocumentsByIssueId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssueDocumentsByIssueId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueDocuments">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssueDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssueDocument">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIssueDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidents">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncident">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveIncident">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveIncident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIncident">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateIncident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIncident">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteIncident" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentActions">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentActionByIncidentId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentActionByIncidentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveIncidentAction">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveIncidentAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentDocuments">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentDocument">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentDocumenByIncidentId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetIncidentDocumenByIncidentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveClient">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeam">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetTeams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTeamWithMembers">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/SaveTeamWithMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTeam">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/UpdateTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeam">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/DeleteTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMembersByTeamId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetTeamMembersByTeamId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntitiesByType">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetEntitiesByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityByTeamType">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetEntityByTeamType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeByEnum">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetTypeByEnum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjectTaskTypes">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetAllProjectTaskTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskTypesByProjectId">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskTypesByProjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTaskTypeById">
+      <soap:operation soapAction="http://tempuri.org/IITMCService/GetProjectTaskTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ITMCService">
+    <wsdl:port name="BasicHttpBinding_IITMCService" binding="tns:BasicHttpBinding_IITMCService">
+      <soap:address location="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

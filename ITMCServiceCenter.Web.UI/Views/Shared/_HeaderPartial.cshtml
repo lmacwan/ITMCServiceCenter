@@ -1,0 +1,54 @@
+﻿@using ITMCServiceCenter.Web.Domain
+<header class="navbar navbar-fixed-top">
+    <div class="pull-left">
+        <a href="@Url.Action("ListAll", "Projects")" class="navbar-brand">
+            <div class="navbar-logo">
+                <img alt="logo" class="img-responsive" src="~/Content/Shared/Image/Header/Logo/logo.gif" />
+            </div>
+        </a>
+    </div>
+    <div class="pull-right header-btns">
+        @* ---- Put Alerts Menu if needed  *@
+        <div id="sidebar-search">
+            <form action="@Url.Action("Search", "Search")" role="search" method="get">
+                <div class="input-group">
+                    <input type="text" placeholder="Search..." class="search-bar form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-xs padding-none" type="button">
+                            <img src="~/Content/Shared/Style/search.png" alt="" class="img-responsive" />
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="btn-group user-menu">
+            <button data-toggle="dropdown" class="btn btn-default btn-sm btn-gradient dropdown-toggle" type="button"><span class="glyphicon glyphicon-user"></span><b>@ITMCServiceCenterApplication.CurrentContextUser.UserFullName </b> </button>
+            <button data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle padding-none" type="button">
+                <img class="img-responsive" alt="user avatar" src="~/Content/Shared/Image/Header/user-pic.png">
+            </button>
+            <ul role="menu" class="dropdown-menu checkbox-persist animated animated-short flipInY">
+                <li class="menu-arrow">
+                    <div class="menu-arrow-up"></div>
+                </li>
+                <li class="dropdown-header">Your Account <span class="pull-right glyphicon glyphicon-user"></span></li>
+                <li>
+                    <ul class="dropdown-items">
+                        <li>
+                            <div class="item-icon"><i class="fa fa-envelope-o"></i></div>
+                            <a href="messages.html" class="item-message">Messages</a> </li>
+                        <li>
+                            <div class="item-icon"><i class="fa fa-calendar"></i></div>
+                            <a href="calendar.html" class="item-message">Calendar</a> </li>
+                        <li class="border-bottom-none">
+                            <div class="item-icon"><i class="fa fa-cog"></i></div>
+                            <a href="customizer.html" class="item-message">Settings</a> </li>
+                        <li class="padding-none">
+                            <div class="dropdown-lockout"><i class="fa fa-lock"></i><a href="screen-lock.html">Screen Lock</a></div>
+                            <div class="dropdown-signout"><i class="fa fa-sign-out"></i><a href="login.html">Sign Out</a></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

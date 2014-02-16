@@ -1,0 +1,16 @@
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\ITMCServiceCenter.Web.Database.dll.config
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\ITMCServiceCenter.Web.Database.dll
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\ITMCServiceCenter.Web.Database.pdb
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\EntityFramework.dll
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\EntityFramework.xml
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\obj\Debug\ITMCServiceCenter.Web.Database.dll
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\obj\Debug\ITMCServiceCenter.Web.Database.pdb
+E:\Nikki\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\obj\Debug\ITMCServiceCenter.Web.Database.csprojResolveAssemblyReference.cache
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\ITMCServiceCenter.Web.Database.dll.config
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\ITMCServiceCenter.Web.Database.dll
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\ITMCServiceCenter.Web.Database.pdb
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\EntityFramework.dll
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\bin\Debug\EntityFramework.xml
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\obj\Debug\ITMCServiceCenter.Web.Database.dll
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\obj\Debug\ITMCServiceCenter.Web.Database.pdb
+D:\Studies\ITMC\Leon\Projects\trunk\Code\ITMCServiceCenter\ITMCServiceCenter.Web.Database\obj\Debug\ITMCServiceCenter.Web.Database.csprojResolveAssemblyReference.cache

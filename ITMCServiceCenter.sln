@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITMCServiceCenter.Web.UI", "ITMCServiceCenter.Web.UI\ITMCServiceCenter.Web.UI.csproj", "{C22A64CE-5BF3-4655-BFB2-CB6D9022C2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITMCServiceCenter.Web.BLL", "ITMCServiceCenter.Web.BLL\ITMCServiceCenter.Web.BLL.csproj", "{01F1E83C-3A09-43D9-BB48-630F6EC59CD3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6C18AF51-CC0E-46FD-9745-DBF390CD31BA} = {6C18AF51-CC0E-46FD-9745-DBF390CD31BA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITMCServiceCenter.Web.Database", "ITMCServiceCenter.Web.Database\ITMCServiceCenter.Web.Database.csproj", "{C31A742A-F2CE-4E33-9D65-29136E5597E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITMCServiceCenter.Web.DLL", "ITMCServiceCenter.Web.DLL\ITMCServiceCenter.Web.DLL.csproj", "{9D9AB0F0-E778-4D4D-BFD3-80A67E954ECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITMCServiceCenter.Web.Domain", "ITMCServiceCenter.Web.Domain\ITMCServiceCenter.Web.Domain.csproj", "{6A7CA5C7-E7EC-4A21-B5A6-4896A10D38CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITMCServiceCenter.Web.Services", "ITMCServiceCenter.Web.Services\ITMCServiceCenter.Web.Services.csproj", "{6C18AF51-CC0E-46FD-9745-DBF390CD31BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C22A64CE-5BF3-4655-BFB2-CB6D9022C2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22A64CE-5BF3-4655-BFB2-CB6D9022C2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22A64CE-5BF3-4655-BFB2-CB6D9022C2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22A64CE-5BF3-4655-BFB2-CB6D9022C2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F1E83C-3A09-43D9-BB48-630F6EC59CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F1E83C-3A09-43D9-BB48-630F6EC59CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F1E83C-3A09-43D9-BB48-630F6EC59CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F1E83C-3A09-43D9-BB48-630F6EC59CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C31A742A-F2CE-4E33-9D65-29136E5597E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C31A742A-F2CE-4E33-9D65-29136E5597E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C31A742A-F2CE-4E33-9D65-29136E5597E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C31A742A-F2CE-4E33-9D65-29136E5597E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D9AB0F0-E778-4D4D-BFD3-80A67E954ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D9AB0F0-E778-4D4D-BFD3-80A67E954ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D9AB0F0-E778-4D4D-BFD3-80A67E954ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D9AB0F0-E778-4D4D-BFD3-80A67E954ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A7CA5C7-E7EC-4A21-B5A6-4896A10D38CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7CA5C7-E7EC-4A21-B5A6-4896A10D38CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7CA5C7-E7EC-4A21-B5A6-4896A10D38CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7CA5C7-E7EC-4A21-B5A6-4896A10D38CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C18AF51-CC0E-46FD-9745-DBF390CD31BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C18AF51-CC0E-46FD-9745-DBF390CD31BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C18AF51-CC0E-46FD-9745-DBF390CD31BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C18AF51-CC0E-46FD-9745-DBF390CD31BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

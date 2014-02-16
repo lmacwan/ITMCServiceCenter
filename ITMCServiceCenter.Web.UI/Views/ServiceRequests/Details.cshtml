@@ -1,0 +1,139 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.UI
+@{
+    ViewBag.Title = "Service Request Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ServiceRequestModel
+<script type="text/javascript">
+    function listAll() {
+        var baseUrl = window.location.href;
+        var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+        window.location.href = url.substring(0, url.lastIndexOf('/')) + "/ListAll";
+    }
+</script>
+<h2>Service Request Details</h2>
+<div class="scrollable">
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.Title) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.Title)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.RequestedBy) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.RequestedByName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.RequestedOn) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.RequestedOn)
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.Description)
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ServiceRequest.Description)
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.ProjectId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.ProjectTitle)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.StartDate) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.StartDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.EstimatedHours) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ServiceRequest.EstimatedHours)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.EndDate) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ServiceRequest.EndDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.PercentComplete) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ServiceRequest.PercentComplete)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.PriorityId) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ServiceRequest.Priority)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.StatusId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.Status)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEngineers) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.SelectedEngineers)
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ServiceRequest.PoNo) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ServiceRequest.PoNo)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label("Actions") : 
+        </div>
+        <div class="col-md-8">
+            @Html.Partial("_ActionsView", Model.ActionsModel)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+        </div>
+        <div class="col-md-8">
+            <input id="btnClose" type="button" value="Close" onclick="javascript: listAll();" />
+        </div>
+    </div>
+</div>

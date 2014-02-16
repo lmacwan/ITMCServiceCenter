@@ -1,0 +1,88 @@
+﻿@using ITMCServiceCenter.Web.Domain
+@using ITMCServiceCenter.Web.Domain.Resources
+@using ITMCServiceCenter.Web.UI
+
+
+@model LoginModel
+@{
+    ViewBag.Title = ITMCServiceCenterResource.lblLogin;
+    Layout = null;
+}
+
+
+<head>
+    @Html.Style("~/Content/Style/Account/Login.min.css")
+    @Html.Style("~/Content/Shared/bootstrap.min.css")
+</head>
+
+<body>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <div id="content" class="divOuter">
+            <div class="span9">
+                @if (@Model != null)
+                {
+                    @Html.Partial("MessageRegionPartial", Model.ModelMessage)
+                }
+            </div>
+            <div class="divLogin" style="text-align: center;">
+
+                <div class="row" style="padding-bottom: 10px">
+
+                    <span>@ITMCServiceCenterResource.lblLogin</span>
+
+                </div>
+                <div class="row" style="padding-bottom: 10px">
+
+                    <div class="col-xs-6">
+                        <div class="pull-right">
+                            @ITMCServiceCenterResource.lblUserName
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="pull-left">
+                            @Html.TextBoxFor(model => model.UserName, new { value = "leon" })
+                        </div>
+                    </div>
+                    <div style="margin-left: -50px; margin-top: 5px">@Html.ValidationMessageFor(m => m.UserName)</div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-xs-6">
+                        <div class="pull-right">
+                            @ITMCServiceCenterResource.lblPassword
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="pull-left">
+                            @Html.PasswordFor(model => model.Password, new { value = "leon" })
+                        </div>
+                    </div>
+                    <div class="center-block">@Html.ValidationMessageFor(m => m.Password)</div>
+                </div>
+                @* <div class="row h4" id="divMsg">
+                    <span>
+                        @if (@Model != null)
+                        {
+                            if (@Model.ModelMessage.Count > 0)
+                            {
+                            <text> @Model.ModelMessage.FirstOrDefault().Message </text>
+                            }
+                        }
+                    </span>
+                </div>*@
+                <div class="row">
+                    <input type="submit" id="loginSubmit" value="@ITMCServiceCenterResource.lblSave" />
+                </div>
+
+            </div>
+        </div>
+    }
+    <div id="divJavascript">
+        @Html.Script("~/Scripts/jquery-1.8.2.min.js")
+        @Html.Script("~/Scripts/jquery.validate.min.js")
+        @Html.Script("~/Scripts/jquery.validate.unobtrusive.min.js")
+        @Html.Script("~/Content/Script/Account/Login.min.js")
+    </div>
+</body>

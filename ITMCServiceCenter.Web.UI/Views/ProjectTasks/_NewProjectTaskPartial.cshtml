@@ -1,0 +1,158 @@
+﻿@using ITMCServiceCenter.Web.UI;
+@using Telerik.Web.Mvc.UI;
+@{
+    Layout = null;
+}
+@model ProjectTaskModel
+@Html.Style("~/Content/Shared/Style/Window/window.css")
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", @Model.ProjectTask.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.ProjectTask.Id > 0 ? "UpdateProjectTask" : "SaveProjectTask", "ProjectTasks", FormMethod.Post, new { id = "frmSaveProjectTask" }))
+    {
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.HiddenFor(model => model.ProjectTask.CreatedBy  , new { @class = "hide" })
+                @Html.HiddenFor(model => model.ProjectTask.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.ProjectTask.CreatedOn, new { @class = "hide" })
+                @Html.HiddenFor(model => model.TestingTeam.Team.Id)
+                @Html.LabelFor(model => model.ProjectTask.Title) :
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.ProjectTask.Title, new { value = "Title", style = "width:260px;" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTitle) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().ComboBoxFor(model => model.ProjectTask.ProjectId).HtmlAttributes(new { @style = "width:260px;" }).BindTo(new SelectList(ProjectTaskModel.Projects, "Id", "Title")).Name("ProjectTask_ProjectId").CascadeTo("ProjectTask_TypeId").ClientEvents(events => events.OnChange("projectOnChange"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+            </div>
+            <div class="col-md-9">
+                @Html.Label("Type the description: ")
+                <br />
+                @Html.TextBoxFor(model => model.ProjectTask.Description, new { size = "40", value = "Description" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.EstimatedHours) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().NumericTextBoxFor(model => model.ProjectTask.EstimatedHours).Spinners(false).Value(10).MinValue(1).EmptyMessage("Enter hours").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.EstimatedCost) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().NumericTextBoxFor(model => model.ProjectTask.EstimatedCost).Spinners(false).Value(50).MinValue(1).EmptyMessage("Enter cost").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.StartDate) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().DatePickerFor(model => model.ProjectTask.StartDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.EndDate) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().DatePickerFor(model => model.ProjectTask.EndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now.AddMonths(5))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.QA) : 
+            </div>
+            <div class="col-md-9">
+                 @Html.Telerik().ComboBoxFor(model => model.ProjectTask.QA).BindTo(new SelectList(ProjectTaskModel.Users, "Id", "FirstName", Model.ProjectTask.QA)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.QAStartDate) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().DatePickerFor(model => model.ProjectTask.QAStartDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.QAEndDate) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().DatePickerFor(model => model.ProjectTask.QAEndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now.AddMonths(5))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.StatusId) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().ComboBoxFor(model => model.ProjectTask.StatusId).Placeholder("Select Status").BindTo(new SelectList(ProjectTaskModel.Statuses, "Id", "Name")).HtmlAttributes(new { @style = "width:260px;" }).SelectedIndex(0)
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resProjectTaskType) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().ComboBoxFor(model => model.ProjectTask.TypeId).Placeholder("Select Task Type").HtmlAttributes(new { @style = "width:260px;" }).Name("ProjectTask_TypeId").DataBinding(binding => binding.Ajax().Select("_GetItems", "ProjectTasks"))
+                <button onClick = "return viewNewProjectTaskTypeWindow();"><i class='glyphicon glyphicon-plus-sign'></i></button>
+                <div id="divLoadNewProjectTaskType"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.PriorityId) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().ComboBoxFor(model => model.ProjectTask.PriorityId).BindTo(new SelectList(ProjectTaskModel.Priorities, "Id", "Name")).HtmlAttributes(new { @style = "width:260px;" }).SelectedIndex(0)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectTask.PercentComplete) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().NumericTextBoxFor(model => model.ProjectTask.PercentComplete).Spinners(false).Value(10).MinValue(1).EmptyMessage("").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.TestingTeam.SelectedMembersId, new MultiSelectList(ProjectTaskModel.Users, "Id", "UserFullName", Model.TestingTeam.SelectedMembersId))
+            </div>
+        </div>
+       
+        
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+            </div>
+            <div class="col-md-9">
+                <input id="btnSaveProjectTask" type="button" value="Save" onclick="javascript: saveProjectTask();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

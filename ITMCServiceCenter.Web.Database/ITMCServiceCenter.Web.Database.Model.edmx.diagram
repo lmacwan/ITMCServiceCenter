@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ff0c4f78723f45758b412509fea464f9" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Assignee" Width="1.5" PointX="0.50446996675081091" PointY="4.4602547308710658" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ChangeRequest" Width="1.5" PointX="1.8729334817607577" PointY="17.787728601036466" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ChangeRequestAction" Width="1.5" PointX="6.1502875043779088" PointY="11.647813310682686" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ChangeRequestDocument" Width="1.5" PointX="0.61420094250431334" PointY="12.257048284754646" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Client" Width="1.5" PointX="5.6942038953742964" PointY="11.608959412020147" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Engineer" Width="1.5" PointX="9.8707000584670812" PointY="10.497900475979737" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Entity" Width="1.5" PointX="11.602930521407597" PointY="30.217584102515868" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Incident" Width="1.5" PointX="11.916057793384445" PointY="30.610531582781363" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_IncidentAction" Width="1.5" PointX="6.5076867931092561" PointY="24.693199824864603" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_IncidentDocument" Width="1.5" PointX="9.97338618430001" PointY="7.1446290943513757" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_IssueTracker" Width="1.5" PointX="10.332970802827258" PointY="19.249706992530129" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_IssueTrackerAction" Width="1.5" PointX="11.332590479092946" PointY="25.899922710796783" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_IssueTrackerDocument" Width="1.5" PointX="7.0607386953480251" PointY="23.152440931253341" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Project" Width="1.5" PointX="8.3571822160655547" PointY="26.043712538687377" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ProjectDocument" Width="1.5" PointX="3.5625200120557658" PointY="2.9957211329581779" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ProjectTask" Width="1.5" PointX="11.717574996742222" PointY="0.61031846730519013" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ProjectTaskAction" Width="1.5" PointX="1.4397891077398271" PointY="3.4764759854769687" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ProjectTaskDocument" Width="1.5" PointX="4.2568082065586044" PointY="3.0365276648833079" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ProjectTaskType" Width="1.5" PointX="6.3074100289062649" PointY="0.041888386030629457" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_RelatedIssue" Width="1.5" PointX="4.3478700184951862" PointY="20.94808937094551" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ServiceRequest" Width="1.5" PointX="9.406905439406124" PointY="16.447236307173611" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ServiceRequestAction" Width="1.5" PointX="11.141710912409103" PointY="11.890224864655279" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_ServiceRequestDocument" Width="1.5" PointX="2.3324825159890961" PointY="9.6458818659400016" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_Team" Width="1.5" PointX="0.56141337033427008" PointY="9.5193852528554324" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_TeamMember" Width="1.5" PointX="10.054170279788863" PointY="14.496350235536857" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_TypeMaster" Width="1.5" PointX="9.629779747514883" PointY="11.665525292821938" />
+        <EntityTypeShape EntityType="ITMCServiceCenterModel.tbl_UserMaster" Width="1.5" PointX="6.914307819173815" PointY="11.796238874921686" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_UserMaster_UserId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_PriorityId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_StatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Project" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_Approver" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequestAction_tbl_ChangeRequest" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ChangeRequestDocument_tbl_ChangeRequest" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_Client" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_TypeMaster" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_UserMaster" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Entity_tbl_TypeMaster" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Entity_StatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_CategoryId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_PriorityId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_StatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entities_ProjectType" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entity_StatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_PriorityId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_StatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PriorityId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_StatusId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Team_tbl_Entity" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_Entity_RoleId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_UserMaster_DesignationId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Project" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Incident_tbl_UserMaster_RequestedBy" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IncidentAction_tbl_Incident" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IncidentDocument_tbl_Incident" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Project" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IssueTrackerAction_tbl_IssueTracker" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_IssueTrackerDocument_tbl_IssueTracker" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Approver" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Manager" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_QA" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectDocument_tbl_Project" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Project_ProjectId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTaskType_tbl_Project" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project_ProjectId" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_UserMaster_QA" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTaskAction_tbl_ProjectTask" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ProjectTaskDocument_tbl_ProjectTask" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequestAction_tbl_ServiceRequest" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_ServiceRequestDocument_tbl_ServiceRequest" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_Team_tbl_TypeMaster" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_Team" />
+        <AssociationConnector Association="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_UserMaster" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

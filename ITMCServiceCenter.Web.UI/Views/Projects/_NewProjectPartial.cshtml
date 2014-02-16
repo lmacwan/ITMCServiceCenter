@@ -1,0 +1,162 @@
+﻿@using ITMCServiceCenter.Web.UI;
+@using Telerik.Web.Mvc.UI;
+@{
+    Layout = null;
+}
+@model ProjectModel
+<link href="~/Content/Shared/Style/Window/window.css" rel="stylesheet" />
+@*<h2>New Project</h2>*@
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", @Model.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.Project.Id > 0 ? "UpdateProject" : "SaveProject", "Projects", FormMethod.Post, new { id = "frmSaveProject" }))
+    {
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.HiddenFor(model => model.Project.CreatedBy, new { @class = "hide" })
+                @Html.HiddenFor(model => model.Project.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.Team.Team.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.Project.CreatedOn, new { @class = "hide" })
+                @Html.LabelFor(model => model.Project.Title) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Project.Title, new { value = "Title", @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.PoNo) : 
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Project.PoNo, new { placeholder = "Enter PO Number" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.EstimatedHours) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.Project.EstimatedHours).Spinners(false).Value(10).MinValue(1).EmptyMessage("Enter hours").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.EstimatedCost) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.Project.EstimatedCost).Spinners(false).Value(50).MinValue(1).EmptyMessage("Enter cost").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.ClientId) : 
+            </div>
+            <div class="col-md-8">
+
+                @Html.Telerik().ComboBoxFor(model => model.Project.ClientId).BindTo(new SelectList(ProjectModel.Clients, "Id", "Name", Model.Project.ClientId)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.StatusId) : 
+            </div>
+            <div class="col-md-8">
+
+                @Html.Telerik().ComboBoxFor(model => model.Project.StatusId).BindTo(new SelectList(ProjectModel.Statuses, "Id", "Name", Model.Project.StatusId)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.TypeId) : 
+            </div>
+            <div class="col-md-8">
+
+                @Html.Telerik().ComboBoxFor(model => model.Project.TypeId).BindTo(new SelectList(ProjectModel.Types, "Id", "Name", Model.Project.TypeId)).HtmlAttributes(new { @class = "wide" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.QA) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Project.QA).BindTo(new SelectList(ProjectModel.Users, "Id", "FirstName", Model.Project.QA))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.Approver) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Project.Approver).BindTo(new SelectList(ProjectModel.Users, "Id", "FirstName", Model.Project.Approver))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.Manager) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Project.Manager).BindTo(new SelectList(ProjectModel.Users, "Id", "FirstName", Model.Project.Manager))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.StartDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.Project.StartDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(Model.Project.StartDate)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.EndDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.Project.EndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(Model.Project.EndDate)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTeam) :
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.Team.SelectedMembersId, new MultiSelectList(ProjectModel.Users, "Id", "UserFullName", Model.Team.SelectedMembersId))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Project.Site) : 
+            </div>
+            <div class="col-md-8">
+                <div class="inline">
+                    @Html.Label("Type the Web address: (")
+                    <a href="#">Click here to test</a>
+                    @Html.Label(")")
+                </div>
+                @Html.TextBoxFor(model => model.Project.Site, new { value = "http://www.abc.com", size = "40" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+            </div>
+            <div class="col-md-8">
+                @Html.Label("Type the description: ")
+                <br />
+                @Html.TextBoxFor(model => model.Project.Description, new { size = "40", value = "Description" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+            </div>
+            <div class="col-md-8">
+                <input id="btnSaveProject" type="button" value="Save" onclick="javascript: saveProject();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

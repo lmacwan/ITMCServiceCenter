@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D9AB0F0-E778-4D4D-BFD3-80A67E954ECF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITMCServiceCenter.Web.DLL</RootNamespace>
+    <AssemblyName>ITMCServiceCenter.Web.DLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\IManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Account\AccountRepository.cs" />
+    <Compile Include="Repositories\Account\DesignationRepository.cs" />
+    <Compile Include="Repositories\Account\RoleRepository.cs" />
+    <Compile Include="Repositories\Assignee\AssigneeRepository.cs" />
+    <Compile Include="Repositories\Change Request\ChangeRequestActionRepository.cs" />
+    <Compile Include="Repositories\Change Request\ChangeRequestDocumentRepository.cs" />
+    <Compile Include="Repositories\Client\ClientRepository.cs" />
+    <Compile Include="Repositories\Incident\IncidentActionRepository.cs" />
+    <Compile Include="Repositories\Incident\IncidentDocumentRepository.cs" />
+    <Compile Include="Repositories\Incident\IncidentRepository.cs" />
+    <Compile Include="Repositories\Issue\IssueActionRepository.cs" />
+    <Compile Include="Repositories\Issue\IssueDocumentRepository.cs" />
+    <Compile Include="Repositories\ProjectTaskType\ProjectTaskTypeRepository.cs" />
+    <Compile Include="Repositories\ProjectTask\ProjectTaskActionRepository.cs" />
+    <Compile Include="Repositories\ProjectTask\ProjectTaskDocumentRepository.cs" />
+    <Compile Include="Repositories\ProjectTask\ProjectTaskRepository.cs" />
+    <Compile Include="Repositories\Project\ProjectDocumentRepository.cs" />
+    <Compile Include="Repositories\Change Request\ChangeRequestRepository.cs" />
+    <Compile Include="Repositories\Issue\IssueRepository.cs" />
+    <Compile Include="Repositories\Project\ProjectRepository.cs" />
+    <Compile Include="Repositories\Service Request\ServiceRequestActionRepository.cs" />
+    <Compile Include="Repositories\Service Request\ServiceRequestDocumentRepository.cs" />
+    <Compile Include="Repositories\Service Request\ServiceRequestRepository.cs" />
+    <Compile Include="Repositories\Team\TeamRepository.cs" />
+    <Compile Include="Repositories\User\EngineerRepository.cs" />
+    <Compile Include="Repositories\User\UserRepository.cs" />
+    <Compile Include="Utility\EntityUtility.cs" />
+    <Compile Include="Utility\TypeUtility.cs" />
+    <Compile Include="Utility\UserUtility.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ITMCServiceCenter.Web.Database\ITMCServiceCenter.Web.Database.csproj">
+      <Project>{c31a742a-f2ce-4e33-9d65-29136e5597e6}</Project>
+      <Name>ITMCServiceCenter.Web.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITMCServiceCenter.Web.Domain\ITMCServiceCenter.Web.Domain.csproj">
+      <Project>{6a7ca5c7-e7ec-4a21-b5a6-4896a10d38cc}</Project>
+      <Name>ITMCServiceCenter.Web.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

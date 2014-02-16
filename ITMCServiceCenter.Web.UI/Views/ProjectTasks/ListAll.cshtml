@@ -1,0 +1,208 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.Domain
+@using ITMCServiceCenter.Web.Domain.Resources;
+@using ITMCServiceCenter.Web.UI
+
+@{
+    ViewBag.Title = ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.titleProjectTasks;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script type="text/javascript">
+        var selectedProjectId = -1;
+
+        function viewProjectTaskWindow(projectTaskId) {
+            var newProjectWindow = $('#NewProjectTaskWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewProjectTaskPartialAjax/" + projectTaskId,
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divNewProjectTaskWindowContainer").html(htmlContent);
+                    newProjectWindow.center();
+                    newProjectWindow.open();
+                    $.validator.unobtrusive.parse($('#NewProjectTaskWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+        function saveProjectTask() {
+            var form = $("#frmSaveProjectTask");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: getFormData(form)
+            })
+            .success(function (result) {
+                if (result) {
+                    $('#NewProjectTaskWindow').data('tWindow').close();
+                } else {
+                    alert("not saved..");
+                }
+            })
+            .error(function () {
+                alert("not saved..");
+            });
+        }
+
+        function getFormData($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function (n, i) {
+                if (n['name'] == "ProjectTask_ProjectId") {
+                    n['name'] = "ProjectTask.ProjectId";
+                }
+                if (n['name'] == "ProjectTask_TypeId") {
+                    n['name'] = "ProjectTask.TypeId";
+                }
+                //indexed_array[n['name']] = n['value'];
+            });
+
+            return unindexed_array;
+        }
+
+        function viewNewProjectTaskTypeWindow() {
+            $('#divAddNewProjectTaskType').toggle(0);
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewProjectTaskTypePartialAjax",
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divLoadNewProjectTaskType").html(htmlContent);
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            })
+            return false;
+        }
+
+        function SaveNewProjectTaskType(e) {
+
+            $("#HiddenProjectId").val(selectedProjectId);
+            var form = $("#frmSaveProjectTaskType");
+            var submitButton = form.find("button");
+            submitButton.attr("disabled", "disabled");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize()
+            })
+           .success(function (result) {
+               if (result) {
+                   $('#divAddNewProjectTaskType').toggle(0);
+                   projectOnChange();
+               } else {
+                   alert("not saved..");
+               }
+           })
+           .error(function () {
+               alert("not saved..");
+           });
+            submitButton.removeAttr("disabled");
+            return false;
+        }
+
+        function projectOnChange(e) {
+            selectedProjectId = e.value;
+        }
+        
+    </script>
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        @(Html.Telerik().Grid<ProjectTaskModel>()
+            .Name("ProjectTasksGrid")
+            .ToolBar(toolbar => toolbar.Template(@<text>
+               <button onClick = "viewProjectTaskWindow(-1)"> <i class='glyphicon glyphicon-plus-sign'></i> @ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblNew
+                   </button>
+                </text>))
+            .DataKeys(datakKey => datakKey.Add(key => key.ProjectTask.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllProjectTasksAjax", "ProjectTasks"))
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.ProjectTask.Title).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTitle);
+                columns.Bound(column => column.ProjectTask.Id)
+                       .Filterable(false)
+                       .Sortable(false)
+                       .Groupable(false)
+                       .Width(20)
+                       .Title(String.Empty)
+                       .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblDetail + "' href='JavaScript:viewDetails(<#= ProjectTask.Id #>);'><i class='glyphicon glyphicon-info-sign'></i></a></center>");
+                columns.Bound(column => column.ProjectTask.Description).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.ProjectTask.Priority).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPriority);
+                columns.Bound(column => column.ProjectTask.Status).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStatus);
+                columns.Bound(column => column.ProjectTask.Type).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resProjectTaskType);
+                columns.Bound(column => column.TestingTeam.MembersString)
+                    .ClientTemplate("<#= TestingTeam.MembersString #>").Title("Testing Team");
+                columns.Bound(column => column.ProjectTask.StartDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStartDate);
+                columns.Bound(column => column.ProjectTask.EndDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEndDate);
+                columns.Bound(column => column.ProjectTask.EstimatedHours).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedHours);
+                columns.Bound(column => column.ProjectTask.EstimatedCost).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedCost);
+                columns.Bound(column => column.ProjectTask.QAName).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resQA);
+                columns.Bound(column => column.ProjectTask.QAStartDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resQAStartDate);
+                columns.Bound(column => column.ProjectTask.QAEndDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resQAEndDate);
+                columns.Bound(column => column.ProjectTask.PercentComplete).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPercentComplete);
+                columns.Bound(column => column.ProjectTask.CreatedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resCreatedOn);
+                columns.Bound(column => column.ProjectTask.ModifiedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resModifiedOn);
+                columns.Bound(column => column.ProjectTask.Id)
+                          .Filterable(false)
+                          .Sortable(false)
+                          .Groupable(false)
+                          .Width(20)
+                          .HtmlAttributes(new { @originalWidth = "20" })
+                          .Title(String.Empty)
+                          .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblEdit + "' href='JavaScript:viewProjectTaskWindow(<#= ProjectTask.Id #>);'><i class='glyphicon glyphicon-pencil'></i></a></center>");
+                columns.Bound(column => column.ProjectTask.Id)
+                            .Filterable(false)
+                            .Sortable(false)
+                            .Groupable(false)
+                            .Width(20)
+                            .HtmlAttributes(new { @originalWidth = "20" })
+                            .Title(String.Empty)
+                            .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblDelete + "' href='JavaScript:DeleteProjectTask(<#= ProjectTask.Id #>);'><i class='glyphicon glyphicon-remove-circle'></i></a></center>");
+
+            })
+            
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+        )
+    </div>
+</div>
+
+@{ Html.Telerik().Window()
+        .Name("NewProjectTaskWindow")
+        .Title("New Task")
+        .Draggable(true)
+        .Resizable(resizing =>
+                        resizing
+                            .Enabled(false)
+                  )
+        .Modal(true)
+        .Buttons(b => b.Close())
+        .Width(586)
+        .Visible(false)
+        .Content(@<text>
+    <div id="divNewProjectTaskWindowContainer"></div>
+    </text>)
+        .Scrollable(true)
+        .Render();
+}

@@ -1,0 +1,61 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.UI
+@using ITMCServiceCenter.Web.Domain
+@{
+    ViewBag.Title = "Project Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ProjectModel
+<script type="text/javascript">
+    function listAll() {
+        var baseUrl = window.location.href;
+        var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+        window.location.href = url.substring(0, url.lastIndexOf('/')) + "/ListAll";
+    }
+</script>
+<h2>Project Details</h2>
+<div class="scrollable">
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Project.Title) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Project.Title)
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Project.Description)
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Project.Description)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Project.EndDate) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Project.EndDate)
+        </div>
+    </div>
+    
+    
+   
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Project.StatusId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Project.Status)
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+        </div>
+        <div class="col-md-8">
+            <input id="btnClose" type="button" value="Close" onclick="javascript: listAll();" />
+        </div>
+    </div>
+</div>

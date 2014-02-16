@@ -1,0 +1,169 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.UI
+@{
+    ViewBag.Title = "Change Request Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ChangeRequestModel
+<script type="text/javascript">
+    function listAll() {
+        var baseUrl = window.location.href;
+        var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+        window.location.href = url.substring(0, url.lastIndexOf('/')) + "/ListAll";
+    }
+</script>
+<h2>Change Request</h2>
+<div class="scrollable">
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.Title) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.Title)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.RequestedBy) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.RequestedByName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.RequestedOn) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.RequestedOn)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.Approver) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.ApproverName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.Description)
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ChangeRequest.Description)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.Impact)
+        </div>
+        <div class="col-md-8">
+            @Html.TextAreaFor(model => model.ChangeRequest.Impact, new { value = "Description" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.ChangeWriter) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.ChangeWriterName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.ProjectId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.ProjectTitle)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.StartDate) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.StartDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.EstimatedHours) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ChangeRequest.EstimatedHours)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.EndDate) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ChangeRequest.EndDate)
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.PercentComplete) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ChangeRequest.PercentComplete)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.PriorityId) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ChangeRequest.Priority)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.StatusId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.Status)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resAssignedTo) : 
+        </div>
+        <div class="col-md-8">
+            @Html.Raw(Model.AssigneeMarkupString)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.TestingTeam.SelectedMembers)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ChangeRequest.PoNo) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ChangeRequest.PoNo)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label("Actions") : 
+        </div>
+        <div class="col-md-8">
+            @Html.Partial("_ActionsView", Model.ActionsModel)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+        </div>
+        <div class="col-md-8">
+            <input id="btnClose" type="button" value="Close" onclick="javascript: listAll();" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.UI
+@{
+    ViewBag.Title = "Incident Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IncidentModel
+<script type="text/javascript">
+    function listAll() {
+        var baseUrl = window.location.href;
+        var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+        window.location.href = url.substring(0, url.lastIndexOf('/')) + "/ListAll";
+    }
+</script>
+<h2>Incident</h2>
+<div class="scrollable">
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.Title) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Incident.Title)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.RequestedBy) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Incident.RequestedByName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.Description)
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Incident.Description)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.ProjectId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Incident.ProjectTitle)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.StartDate) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Incident.StartDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.EstimatedHours) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Incident.EstimatedHours)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.EndDate) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Incident.EndDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.PercentComplete) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Incident.PercentComplete)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Incident.StatusId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Incident.Status)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEngineers) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.SelectedEngineers)
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.TestingTeam.SelectedMembers)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label("Actions") : 
+        </div>
+        <div class="col-md-8">
+            @Html.Partial("_ActionsView", Model.ActionsModel)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+        </div>
+        <div class="col-md-8">
+            <input id="btnClose" type="button" value="Close" onclick="javascript: listAll();" />
+        </div>
+    </div>
+</div>

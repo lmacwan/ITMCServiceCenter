@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f5509ca9-49c0-474e-91f1-0a84f841afb9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ITMCService.disco" MetadataType="Disco" ID="da8f53cd-0e5d-4ba5-9010-a422ef9d0067" SourceId="1" SourceUrl="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?disco" />
+    <MetadataFile FileName="ITMCService.xsd" MetadataType="Schema" ID="aad5dbb2-518e-4db3-9b37-ba5fabca2d5b" SourceId="1" SourceUrl="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ITMCService1.xsd" MetadataType="Schema" ID="4a7239ce-2502-43b9-a26f-972ae5bbb697" SourceId="1" SourceUrl="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ITMCService.wsdl" MetadataType="Wsdl" ID="fc79a148-7060-4984-88a7-520cff0c4529" SourceId="1" SourceUrl="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?wsdl" />
+    <MetadataFile FileName="ITMCService2.xsd" MetadataType="Schema" ID="212b9283-942c-4588-992b-e1bd1d7d814e" SourceId="1" SourceUrl="http://localhost/ITMCServiceCenter.Web.Services/Services/ITMC/ITMCService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

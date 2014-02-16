@@ -1,0 +1,156 @@
+﻿@using ITMCServiceCenter.Web.UI;
+@using Telerik.Web.Mvc.UI;
+@{
+    Layout = null;
+}
+@model IncidentModel
+@Html.Style("~/Content/Shared/Style/Window/window.css")
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", Model.Incident.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.Incident.Id > 0 ? "UpdateIncident" : "SaveIncident", "Incidents", FormMethod.Post, new { id = "frmSaveIncident" }))
+    {
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.HiddenFor(model => model.Incident.CreatedBy  , new { @class = "hide" })
+                @Html.HiddenFor(model => model.Incident.Id)
+                @Html.HiddenFor(model => model.Incident.CreatedOn)
+                @Html.HiddenFor(model => model.TestingTeam.Team.Id)
+                @Html.LabelFor(model => model.Incident.Title) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Incident.Title, new { value = "Title", @class = "wide" })
+            </div>
+        </div>
+        
+         <div class="row">
+            <div class="col-md-4 myColPadding">
+                 @Html.LabelFor(model => model.Incident.Description) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Incident.Description, new { @class = "wide" })
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                 @Html.LabelFor(model => model.Incident.RequestedBy) :
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Incident.RequestedBy).BindTo(new SelectList(IncidentModel.Users, "Id", "UserFullName", Model.Incident.RequestedBy)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.IncidentOn) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.Incident.IncidentOn).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.LevelId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Incident.LevelId).BindTo(new SelectList(IncidentModel.Levels, "Id", "Name", Model.Incident.LevelId)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.StartDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.Incident.StartDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.EndDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.Incident.EndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now.AddMonths(5))
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.EstimatedHours) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.Incident.EstimatedHours).Spinners(false).Value(10).MinValue(1).EmptyMessage("Enter hours").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.PercentComplete) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.Incident.PercentComplete).Spinners(false).MinValue(0).EmptyMessage("Enter percent").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+            </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.ProjectId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Incident.ProjectId).BindTo(new SelectList(IncidentModel.Projects, "Id", "Title", Model.Incident.ProjectId)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.StatusId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Incident.StatusId).Placeholder("Select Status").BindTo(new SelectList(IncidentModel.Statuses, "Id", "Name",  Model.Incident.StatusId)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Incident.PercentComplete) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.Incident.PercentComplete).Spinners(false).MinValue(1).EmptyMessage("").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.SelectedEngineers) : 
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.SelectedEngineersId, new SelectList(IncidentModel.Users, "Id", "UserFullName"))
+            </div>
+        </div>
+        
+         <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.TestingTeam.SelectedMembersId, new MultiSelectList(IncidentModel.Users, "Id", "UserFullName", Model.TestingTeam.SelectedMembersId))
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+            </div>
+            <div class="col-md-8">
+                <input id="btnSaveIncident" type="button" value="Save" onclick="javascript: saveIncident();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

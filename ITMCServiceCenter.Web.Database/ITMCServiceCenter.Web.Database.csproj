@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C31A742A-F2CE-4E33-9D65-29136E5597E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITMCServiceCenter.Web.Database</RootNamespace>
+    <AssemblyName>ITMCServiceCenter.Web.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ITMCServiceCenter.Web.Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITMCServiceCenter.Web.Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITMCServiceCenter.Web.Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITMCServiceCenter.Web.Database.Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITMCServiceCenter.Web.Database.Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_Assignee.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ChangeRequest.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ChangeRequestAction.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ChangeRequestDocument.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Client.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Engineer.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Entity.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Incident.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_IncidentAction.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_IncidentDocument.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_IssueTracker.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_IssueTrackerAction.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_IssueTrackerDocument.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Project.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ProjectDocument.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ProjectTask.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ProjectTaskAction.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ProjectTaskDocument.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ProjectTaskType.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_RelatedIssue.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ServiceRequest.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ServiceRequestAction.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ServiceRequestDocument.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Team.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_TeamMember.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_TypeMaster.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_UserMaster.cs">
+      <DependentUpon>ITMCServiceCenter.Web.Database.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ITMCServiceCenter.Web.Database.Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ITMCServiceCenter.Web.Database.Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ITMCServiceCenter.Web.Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ITMCServiceCenter.Web.Database.Model.edmx</DependentUpon>
+      <LastGenOutput>ITMCServiceCenter.Web.Database.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ITMCServiceCenter.Web.Database.Model.edmx.diagram">
+      <DependentUpon>ITMCServiceCenter.Web.Database.Model.edmx</DependentUpon>
+    </None>
+    <None Include="ITMCServiceCenter.Web.Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ITMCServiceCenter.Web.Database.Model.edmx</DependentUpon>
+      <LastGenOutput>ITMCServiceCenter.Web.Database.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

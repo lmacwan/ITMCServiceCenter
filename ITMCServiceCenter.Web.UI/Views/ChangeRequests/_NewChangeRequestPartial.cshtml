@@ -1,0 +1,178 @@
+﻿@using ITMCServiceCenter.Web.UI;
+@using Telerik.Web.Mvc.UI;
+@{
+    Layout = null;
+}
+@model ChangeRequestModel
+@Html.Style("~/Content/Shared/Style/Window/window.css")
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", @Model.ChangeRequest.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.ChangeRequest.Id > 0 ? "UpdateChangeRequest" : "SaveChangeRequest", "ChangeRequests", FormMethod.Post, new { id = "frmSaveChangeRequest" }))
+    {
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+
+                @Html.HiddenFor(model => model.TestingTeam.Team.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.ChangeRequest.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.ChangeRequest.CreatedOn, new { @class = "hide" })
+                @Html.HiddenFor(model => model.ChangeRequest.CreatedBy, new { @class = "hide" })
+                @Html.LabelFor(model => model.ChangeRequest.Title) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.ChangeRequest.Title, new { value = "Title", @class = "wide" })
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.RequestedBy) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ChangeRequest.RequestedBy).BindTo(new SelectList(ChangeRequestModel.Users, "Id", "FirstName", Model.ChangeRequest.RequestedBy)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.RequestedOn) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.ChangeRequest.RequestedOn).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.Approver) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ChangeRequest.Approver).BindTo(new SelectList(ChangeRequestModel.Users, "Id", "FirstName", Model.ChangeRequest.Approver)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.Description)
+            </div>
+            <div class="col-md-8">
+                @Html.TextAreaFor(model => model.ChangeRequest.Description, new { value = "Description" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.Impact)
+            </div>
+            <div class="col-md-8">
+                @Html.TextAreaFor(model => model.ChangeRequest.Impact, new { value = "Description" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.ChangeWriter) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ChangeRequest.ChangeWriter).BindTo(new SelectList(ChangeRequestModel.Users, "Id", "FirstName", Model.ChangeRequest.ChangeWriter)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.ProjectId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ChangeRequest.ProjectId).BindTo(new SelectList(ChangeRequestModel.Projects, "Id", "Title", Model.ChangeRequest.ProjectId)).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.StartDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.ChangeRequest.StartDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.EstimatedHours) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.ChangeRequest.EstimatedHours).Spinners(false).MinValue(1).EmptyMessage("Enter hours").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.EndDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.ChangeRequest.EndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.PercentComplete) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.ChangeRequest.PercentComplete).Spinners(false).MinValue(0).EmptyMessage("Enter percent").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.PriorityId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ChangeRequest.PriorityId).BindTo(new SelectList(ChangeRequestModel.Priorities, "Id", "Name", Model.ChangeRequest.Priority))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.StatusId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ChangeRequest.StatusId).BindTo(new SelectList(ChangeRequestModel.Statuses, "Id", "Name", Model.ChangeRequest.Status))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resAssignedTo) : 
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.Assignees, new MultiSelectList(ChangeRequestModel.Users, "Id", "UserFullName", Model.Assignees))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.TestingTeam.SelectedMembersId, new MultiSelectList(ChangeRequestModel.Users, "Id", "UserFullName", Model.TestingTeam.SelectedMembersId))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ChangeRequest.PoNo) : 
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.ChangeRequest.PoNo)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label("Actions") : 
+            </div>
+            <div class="col-md-8">
+                @{
+        Html.RenderPartial("_ActionsView", Model.ActionsModel);
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+            </div>
+            <div class="col-md-8">
+                <input id="btnSaveProject" type="button" value="Save" onclick="javascript: saveChangeRequest();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

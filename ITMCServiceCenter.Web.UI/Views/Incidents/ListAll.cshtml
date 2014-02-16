@@ -1,0 +1,135 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.Domain
+@using ITMCServiceCenter.Web.Domain.Resources;
+@using ITMCServiceCenter.Web.UI
+@{
+    ViewBag.Title = ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.titleIncidents;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script type="text/javascript">
+        function viewIncidentWindow(incidentId) {
+            var newIncidentWindow = $('#IncidentWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetIncidentPartialAjax/" + incidentId,
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divIncidentWindowContainer").html(htmlContent);
+                    newIncidentWindow.center();
+                    newIncidentWindow.open();
+                    $.validator.unobtrusive.parse($('#IncidentWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+        function saveIncident() {
+            $("#btnSaveIncident").attr("disabled", "disabled");
+            var form = $("#frmSaveIncident");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize()
+            })
+            .success(function (result) {
+                if (result) {
+                    $('#IncidentWindow').data('tWindow').close();
+                } else {
+                    alert("not saved..");
+                }
+            })
+            .error(function () {
+                alert("not saved..");
+            })
+            .done(function() {
+                $("#btnSaveIncident").removeAttr("disabled");
+            });
+        }
+       
+    </script>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        @(Html.Telerik().Grid<ITMCServiceCenter.Web.UI.IncidentModel>()
+            .Name("IncidentsGrid")
+            .ToolBar(toolbar => toolbar.Template(@<text>
+               <button onClick = "viewIncidentWindow(-1)"> <i class='glyphicon glyphicon-plus-sign'></i> @ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblNew
+                   </button>
+                </text>))
+            .DataKeys(datakKey => datakKey.Add(key => key.Incident.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllIncidentsAjax", "Incidents"))
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.Incident.Title).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTitle);
+                columns.Bound(column => column.Incident.Id)
+                       .Filterable(false)
+                       .Sortable(false)
+                       .Groupable(false)
+                       .Width(20)
+                       .Title(String.Empty)
+                       .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblDetail + "' href='JavaScript:viewDetails(<#= Incident.Id #>);'><i class='glyphicon glyphicon-info-sign'></i></a></center>");
+                columns.Bound(column => column.Incident.Description).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.Incident.Level).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resLevel);
+                columns.Bound(column => column.Incident.Status).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStatus);
+                columns.Bound(column => column.EngineersString)
+   .ClientTemplate("<#= EngineersString #>").Title("Secondary Engineer");
+                columns.Bound(column => column.TestingTeam.MembersString)
+                    .ClientTemplate("<#= TestingTeam.MembersString #>").Title("Testing Team");
+                columns.Bound(column => column.Incident.StartDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStartDate);
+                columns.Bound(column => column.Incident.EndDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEndDate);
+                columns.Bound(column => column.Incident.EstimatedHours).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedHours);
+                columns.Bound(column => column.Incident.PercentComplete).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPercentComplete);
+                columns.Bound(column => column.Incident.CreatedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resCreatedOn);
+                columns.Bound(column => column.Incident.ModifiedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resModifiedOn);
+                columns.Bound(column => column.Incident.Id)
+                            .Filterable(false)
+                            .Sortable(false)
+                            .Groupable(false)
+                            .Width(20)
+                            .HtmlAttributes(new { @originalWidth = "20" })
+                            .Title(String.Empty)
+                            .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblEdit + "' href='JavaScript:viewIncidentWindow(<#= Incident.Id #>);'><i class='glyphicon glyphicon-pencil'></i></a></center>");
+                columns.Bound(column => column.Incident.Id)
+                            .Filterable(false)
+                            .Sortable(false)
+                            .Groupable(false)
+                            .Width(20)
+                            .HtmlAttributes(new { @originalWidth = "20" })
+                            .Title(String.Empty)
+                            .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblDelete + "' href='JavaScript:DeleteIncident(<#= Incident.Id #>);'><i class='glyphicon glyphicon-remove-circle'></i></a></center>");
+            })
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+        )
+    </div>
+</div>
+
+@{ Html.Telerik().Window()
+        .Name("IncidentWindow")
+        .Title("New Incident")
+        .Draggable(true)
+        .Resizable(resizing =>
+                        resizing
+                            .Enabled(false)
+                  )
+        .Modal(true)
+        .Buttons(b => b.Close())
+        .Width(586)
+        .Visible(false)
+        .Content(@<text>
+    <div id="divIncidentWindowContainer"></div>
+    </text>)
+        .Scrollable(true)
+        .Render();
+}

@@ -1,0 +1,165 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.Domain
+@using ITMCServiceCenter.Web.Domain.Resources;
+
+@{
+    ViewBag.Title = ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.titleProjects;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script type="text/javascript">
+        function viewProjectWindow(id) {
+            var newProjectWindow = $('#NewProjectWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewProjectPartialAjax/" + id,
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divNewProjectWindowContainer").html(htmlContent);
+                    newProjectWindow.center();
+                    newProjectWindow.open();
+                    $.validator.unobtrusive.parse($('#NewProjectWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+        function saveProject() {
+            var form = $("#frmSaveProject");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize()
+            })
+            .success(function (result) {
+                if (result) {
+                    $('#NewProjectWindow').data('tWindow').close();
+                } else {
+                    alert("not saved..");
+                }
+            })
+            .error(function () {
+                alert("not saved..");
+            });
+        }
+
+        function viewProjectWindow(projectid) {
+            var newProjectWindow = $('#NewProjectWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+            var id = $(".ProjectsGrid").val;
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewProjectPartialAjax/" + projectid,
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divNewProjectWindowContainer").html(htmlContent);
+                    newProjectWindow.center();
+                    newProjectWindow.open();
+                    $.validator.unobtrusive.parse($('#NewProjectWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+        
+    </script>
+}
+
+<div class="row">
+
+    <div class="col-xs-12">
+
+        <button id="btnViewNewProjectWindow" onclick="viewProjectWindow(-1);">New Project</button>
+        @(Html.Telerik().Grid<ITMCServiceCenter.Web.UI.ProjectModel>()
+            .Name("ProjectsGrid")
+            .DataKeys(datakKey => datakKey.Add(key => key.Project.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllProjectsAjax", "Projects"))
+            .Selectable()
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.Project.Id).Hidden();
+                columns.Bound(column => column.Project.ClientName).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resClient);
+                columns.Bound(column => column.Project.Title).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resProject);
+                columns.Bound(column => column.Project.Description).Title
+                    (ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.Project.Id)
+                       .Filterable(false)
+                       .Sortable(false)
+                       .Groupable(false)
+                       .Width(20)
+                       .Title(String.Empty)
+                       .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblDetail + "' href='JavaScript:viewDetails(<#= Project.Id #>);'><i class='glyphicon glyphicon-info-sign'></i></a></center>");
+                columns.Bound(column => column.Project.ApproverName).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resApprover);
+                columns.Bound(column => column.Project.StartDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStartDate);
+                columns.Bound(column => column.Project.PoNo).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPoNo);
+                columns.Bound(column => column.Team.SelectedMembersFullName)
+                   .ClientTemplate("<ul><li><#= Team.SelectedMembersFullName #></li></ul>").Title("Team");
+                columns.Bound(column => column.Project.EndDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEndDate);
+                columns.Bound(column => column.Project.EstimatedCost).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedCost);
+                columns.Bound(column => column.Project.EstimatedHours).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedHours);
+                columns.Bound(column => column.Project.ManagerName).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resManager);
+                columns.Bound(column => column.Project.Site).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resSite);
+                columns.Bound(column => column.Project.QAName).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resQA);
+                columns.Bound(column => column.Project.Status).Title
+(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStatus);
+                columns.Bound(column => column.Project.CreatedOn).Title("Created On");
+                columns.Bound(column => column.Project.Id)
+                            .Filterable(false)
+                            .Sortable(false)
+                            .Groupable(false)
+                            .Width(20)
+                            .HtmlAttributes(new { @originalWidth = "20" })
+                            .Title(String.Empty)
+                            .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblEdit + "' href='JavaScript:viewProjectWindow(<#= Project.Id #>);'><i class='glyphicon glyphicon-pencil'></i></a></center>");
+                columns.Bound(column => column.Project.Id)
+                            .Filterable(false)
+                            .Sortable(false)
+                            .Groupable(false)
+                            .Width(20)
+                            .HtmlAttributes(new { @originalWidth = "20" })
+                            .Title(String.Empty)
+                            .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblDelete + "' href='JavaScript:DeleteProject(<#= Project.Id #>);'><i class='glyphicon glyphicon-remove-circle'></i></a></center>");
+
+            })
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+             .ClientEvents(events => events.OnRowDataBound("rowBound"))
+        )
+    </div>
+</div>
+
+@{ Html.Telerik().Window()
+        .Name("NewProjectWindow")
+        .Title("New Project")
+        .Draggable(true)
+        .Resizable(resizing =>
+                        resizing
+                            .Enabled(false)
+                  )
+        .Modal(true)
+        .Buttons(b => b.Close())
+        .Width(586)
+        .Visible(false)
+        .Content(@<text>
+    <div id="divNewProjectWindowContainer"></div>
+    </text>)
+        .Scrollable(true)
+        .Render();
+}

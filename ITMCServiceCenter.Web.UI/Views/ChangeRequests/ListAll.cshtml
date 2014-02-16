@@ -1,0 +1,159 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.Domain
+@using ITMCServiceCenter.Web.Domain.Resources;
+@using ITMCServiceCenter.Web.UI
+
+@{
+    ViewBag.Title = ITMCServiceCenterResource.titleChangeRequests;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script type="text/javascript">
+        function viewChangeRequestWindow(changeRequestId) {
+            var newProjectWindow = $('#NewChangeRequestWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewChangeRequestPartialAjax/" + changeRequestId,
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divNewChangeRequestWindowContainer").html(htmlContent);
+                    newProjectWindow.center();
+                    newProjectWindow.open();
+                    $.validator.unobtrusive.parse($('#NewChangeRequestWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+      
+        function saveChangeRequest() {
+            var form = $("#frmSaveChangeRequest");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),   
+                data: getFormData(form)
+            })
+            .success(function (result) {
+                if (result) {
+
+                    $('#NewChangeRequestWindow').data('tWindow').close();
+                } else {
+                    alert("not saved..");
+                }
+            })
+            .error(function () {
+                alert("not saved..");
+            });
+        }
+
+        function getFormData($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function (n, i) {
+                if (n['name'] == "NewAction.Action") {
+                    n['name'] = "ActionsModel." + n['name'];
+                }
+               // indexed_array[n['name']] = n['value'];
+            });
+
+            return unindexed_array;
+        }
+        
+    </script>
+}
+<div class="row">
+    <div class="col-xs-12">
+        @(Html.Telerik().Grid<ChangeRequestModel>()
+            .Name("ChnageRequestsGrid")
+            .ToolBar(toolbar => toolbar.Template(@<text>
+        <button onclick="viewChangeRequestWindow(-1)">
+            <i class='glyphicon glyphicon-plus-sign'></i>@ITMCServiceCenterResource.lblNew
+        </button>
+        </text>))
+            .DataKeys(datakKey => datakKey.Add(key => key.ChangeRequest.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllChangeRequestsAjax", "ChangeRequests"))
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.ChangeRequest.Title).Title(ITMCServiceCenterResource.resProject);
+                columns.Bound(column => column.ChangeRequest.Id)
+                       .Filterable(false)
+                       .Sortable(false)
+                       .Groupable(false)
+                       .Width(20)
+                       .Title(String.Empty)
+                       .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblDetail + "' href='JavaScript:viewDetails(<#= ChangeRequest.Id #>);'><i class='glyphicon glyphicon-info-sign'></i></a></center>");
+                columns.Bound(column => column.ChangeRequest.Description).Title(ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.ChangeRequest.StartDate).Format("{0:dd-MMM-yy}").Title(ITMCServiceCenterResource.resStartDate);
+                columns.Bound(column => column.ChangeRequest.EndDate).Format("{0:dd-MMM-yy}").Title(ITMCServiceCenterResource.resEndDate);
+                columns.Bound(column => column.TestingTeam.MembersString)
+                    .ClientTemplate("<#= AssigneeMarkupString #>").Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resAssignedTo);
+                columns.Bound(column => column.TestingTeam.MembersString)
+                    .ClientTemplate("<#= TestingTeam.MembersString #>").Title("Testing Team");
+                columns.Bound(column => column.ChangeRequest.EstimatedHours).Title(ITMCServiceCenterResource.resEstimatedHours);
+                columns.Bound(column => column.ChangeRequest.PercentComplete).Title(ITMCServiceCenterResource.resPercentComplete);
+                columns.Bound(column => column.ChangeRequest.Impact).Title(ITMCServiceCenterResource.resImpact);
+                columns.Bound(column => column.ChangeRequest.PoNo).Title(ITMCServiceCenterResource.resPoNo);
+                columns.Bound(column => column.ChangeRequest.CreatedOn).Title(ITMCServiceCenterResource.resCreatedOn);
+                columns.Bound(column => column.ChangeRequest.ModifiedOn).Title(ITMCServiceCenterResource.resModifiedOn);
+                columns.Bound(column => column.ChangeRequest.Priority).Title(ITMCServiceCenterResource.resPriority);
+                columns.Bound(column => column.ChangeRequest.Status).Title(ITMCServiceCenterResource.resStatus);
+                columns.Bound(column => column.ChangeRequest.ProjectTitle).Title(ITMCServiceCenterResource.resProject);
+                columns.Bound(column => column.ChangeRequest.Id)
+                        .Filterable(false)
+                        .Sortable(false)
+                        .Groupable(false)
+                        .Width(20)
+                        .HtmlAttributes(new { @originalWidth = "20" })
+                        .Title(String.Empty)
+                        .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblEdit + "' href='JavaScript:viewChangeRequestWindow(<#= ChangeRequest.Id #>);'><i class='glyphicon glyphicon-pencil'></i></a></center>");
+                columns.Bound(column => column.ChangeRequest.Id)
+                        .Filterable(false)
+                        .Sortable(false)
+                        .Groupable(false)
+                        .Width(20)
+                        .HtmlAttributes(new { @originalWidth = "20" })
+                        .Title(String.Empty)
+                        .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblDelete + "' href='JavaScript:DeleteChangeRequest(<#= ChangeRequest.Id #>);'><i class='glyphicon glyphicon-remove-circle'></i></a></center>");
+            })
+            .ToolBar(commands => commands
+                        .Custom()
+                        .Ajax(true)
+                        .ButtonType(GridButtonType.Text)
+                        .HtmlAttributes(new { @class = "new", onclick = "viewChangeRequestWindow(-1)" })
+                        .Text("<i class='glyphicon glyphicon-plus-sign'></i> " + ITMCServiceCenterResource.lblNew)
+                    )
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+            .ClientEvents(events => events.OnRowDataBound("rowBound"))
+                //.Groupable(grouping => grouping.Groups(groups => groups.Add(col => col.ProjectTitle)))
+        )
+    </div>
+</div>
+@{ Html.Telerik().Window()
+        .Name("NewChangeRequestWindow")
+        .Title("New Change Request")
+        .Draggable(true)
+        .Resizable(resizing =>
+                        resizing
+                            .Enabled(false)
+                  )
+        .Modal(true)
+        .Buttons(b => b.Close())
+        .Width(586)
+        .Visible(false)
+        .Content(@<text>
+    <div id="divNewChangeRequestWindowContainer"></div>
+    </text>)
+        .Scrollable(true)
+        .Render();
+}

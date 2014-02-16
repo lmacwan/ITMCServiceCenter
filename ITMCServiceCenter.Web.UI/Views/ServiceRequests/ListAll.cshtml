@@ -1,0 +1,136 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.Domain
+@using ITMCServiceCenter.Web.Domain.Resources;
+@{
+    ViewBag.Title = ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.titleServiceRequests;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script type="text/javascript">
+        function viewNewServiceRequestWindow(serviceRequestId) {
+            var newProjectWindow = $('#NewServiceRequestWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewServiceRequestPartialAjax/" + serviceRequestId,
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divNewServiceRequestWindowContainer").html(htmlContent);
+                    newProjectWindow.center();
+                    newProjectWindow.open();
+                    $.validator.unobtrusive.parse($('#NewServiceRequestWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+        function saveServiceRequest() {
+            var form = $("#frmSaveServiceRequest");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize()
+            })
+            .success(function (result) {
+                if (result) {
+                    $('#NewServiceRequestWindow').data('tWindow').close();
+                } else {
+                    alert("not saved..");
+                }
+            })
+            .error(function () {
+                alert("not saved..");
+            });
+        }
+    </script>
+}
+
+<div class="row">
+    
+    <div class="col-xs-12">
+        @(Html.Telerik().Grid<ITMCServiceCenter.Web.UI.ServiceRequestModel>()
+            .Name("ServiceRequestsGrid")
+            .DataKeys(datakKey => datakKey.Add(key => key.ServiceRequest.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllServiceRequestsAjax", "ServiceRequests"))
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.ServiceRequest.Title).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resProject);
+                columns.Bound(column => column.ServiceRequest.Id)
+                       .Filterable(false)
+                       .Sortable(false)
+                       .Groupable(false)
+                       .Width(20)
+                       .Title(String.Empty)
+                       .ClientTemplate("<center><a title='" + ITMCServiceCenterResource.lblDetail + "' href='JavaScript:viewDetails(<#= ServiceRequest.Id #>);'><i class='glyphicon glyphicon-info-sign'></i></a></center>");
+                columns.Bound(column => column.ServiceRequest.Description).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.ServiceRequest.Priority).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPriority);
+                columns.Bound(column => column.ServiceRequest.Status).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStatus);
+                columns.Bound(column => column.EngineersString)
+                   .ClientTemplate("<#= EngineersString #>").Title("Secondary Engineer");
+                columns.Bound(column => column.TestingTeam.MembersString)
+                    .ClientTemplate("<#= TestingTeam.MembersString #>").Title("Testing Team");
+                columns.Bound(column => column.ServiceRequest.StartDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStartDate);
+                columns.Bound(column => column.ServiceRequest.EndDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEndDate);
+                columns.Bound(column => column.ServiceRequest.EstimatedHours).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedHours);
+                columns.Bound(column => column.ServiceRequest.PercentComplete).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPercentComplete);
+                columns.Bound(column => column.ServiceRequest.PoNo).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPoNo);
+                columns.Bound(column => column.ServiceRequest.CreatedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resCreatedOn);
+                columns.Bound(column => column.ServiceRequest.CreatedByName).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resCreatedBy);
+                columns.Bound(column => column.ServiceRequest.ModifiedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resModifiedOn);
+                columns.Bound(column => column.ServiceRequest.ProjectTitle).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resProject);
+                columns.Bound(column => column.ServiceRequest.Id)
+                          .Filterable(false)
+                          .Sortable(false)
+                          .Groupable(false)
+                          .Width(20)
+                          .HtmlAttributes(new { @originalWidth = "20" })
+                          .Title(String.Empty)
+                          .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblEdit + "' href='JavaScript:viewNewServiceRequestWindow(<#= ServiceRequest.Id #>);'><i class='glyphicon glyphicon-pencil'></i></a></center>");
+                columns.Bound(column => column.ServiceRequest.Id)
+                            .Filterable(false)
+                            .Sortable(false)
+                            .Groupable(false)
+                            .Width(20)
+                            .HtmlAttributes(new { @originalWidth = "20" })
+                            .Title(String.Empty)
+                            .ClientTemplate("<center><a title='" + ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblDelete + "' href='JavaScript:DeleteServiceRequest(<#= ServiceRequest.Id #>);'><i class='glyphicon glyphicon-remove-circle'></i></a></center>");
+            })
+             .ToolBar(commands => commands
+                                       .Custom()
+                                       .Ajax(true)
+                                       .ButtonType(GridButtonType.Text)
+                                       .HtmlAttributes(new { @class = "new", onclick = "viewNewServiceRequestWindow(-1)" })
+                                       .Text("<i class='glyphicon glyphicon-plus-sign'></i> "+ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.lblNew))
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+                //.Groupable(grouping => grouping.Groups(groups => groups.Add(col => col.ProjectTitle)))
+        )
+    </div>
+</div>
+
+@{ Html.Telerik().Window()
+        .Name("NewServiceRequestWindow")
+        .Title("New Service Request")
+        .Draggable(true)
+        .Resizable(resizing =>
+                        resizing
+                            .Enabled(false)
+                  )
+        .Modal(true)
+        .Buttons(b => b.Close())
+        .Width(586)
+        .Visible(false)
+        .Content(@<text>
+    <div id="divNewServiceRequestWindowContainer"></div>
+    </text>)
+        .Scrollable(true)
+        .Render();
+}

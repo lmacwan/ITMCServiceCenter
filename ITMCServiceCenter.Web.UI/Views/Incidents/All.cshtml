@@ -1,0 +1,35 @@
+﻿@using Telerik.Web.Mvc.UI;
+@using ITMCServiceCenter.Web.Domain;
+
+@{
+    ViewBag.Title = ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.titleIncidents;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        @(Html.Telerik().Grid<tbl_Incident_DTO>()
+            .Name("IncidentsGrid")
+            .DataKeys(datakKey => datakKey.Add(key => key.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllIncidentsAjax", "Incidents"))
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.Title).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTitle);
+                columns.Bound(column => column.Description).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.Level).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resLevel);
+                columns.Bound(column => column.Status).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStatus);
+                columns.Bound(column => column.StartDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resStartDate);
+                columns.Bound(column => column.EndDate).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEndDate);
+                columns.Bound(column => column.EstimatedHours).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resEstimatedHours);
+                columns.Bound(column => column.PercentComplete).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resPercentComplete);
+                columns.Bound(column => column.CreatedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resCreatedOn);
+                columns.Bound(column => column.ModifiedOn).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resModifiedOn);
+                
+            })
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+        )
+    </div>
+</div>
+

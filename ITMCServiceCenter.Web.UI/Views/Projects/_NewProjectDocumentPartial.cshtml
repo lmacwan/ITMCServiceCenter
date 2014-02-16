@@ -1,0 +1,64 @@
+﻿@using ITMCServiceCenter.Web.UI;
+@using Telerik.Web.Mvc.UI;
+@{
+    Layout = null;
+}
+@model ITMCServiceCenter.Web.Domain.tbl_ProjectDocument_DTO
+
+
+@Html.Style("~/Content/Shared/Style/Window/window.css")
+
+@*<h2>New Project</h2>*@
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", @Model.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.ProjectId > 0 ? "UpdateProject" : "SaveProjectDocument", "Projects", FormMethod.Post, new { id = "frmSaveProjectDocument" }))
+    {
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.Title) :
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.Title, new { value = "Title", style = "width:260px;", onkeypress = "inputPlaceHolder()" })
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.ProjectId) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().ComboBoxFor(model => model.ProjectId).BindTo(new SelectList(Model.Projects, "Id", "Title")).SelectedIndex(0).HtmlAttributes(new { @style = "width:260px;", onkeypress = "inputPlaceHolder()" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+                @Html.LabelFor(model => model.Path) : 
+            </div>
+            <div class="col-md-9">
+                @Html.Telerik().Upload().Name("Attachment").Multiple(true).Async( async => async.Save("Save","Upload").Remove("Remove","Upload"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+            </div>
+            <div class="col-md-9">
+                @Html.Label("Type the description: ")
+                @Html.TextBoxFor(model => model.Description, new { size = "40", value = "Description", onkeypress = "inputPlaceHolder()" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 myColPadding">
+            </div>
+            <div class="col-md-9">
+                <input id="btnSaveProjectDocument" type="button" value="Save" onclick="javascript: saveProjectDocument();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

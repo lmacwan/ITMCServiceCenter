@@ -1,0 +1,106 @@
+﻿@using ITMCServiceCenter.Web.UI
+@using Telerik.Web.Mvc.UI;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @(Html.Telerik().StyleSheetRegistrar()
+                      .DefaultGroup(group => group
+                          .Add("telerik.common.css")
+                          .Add("telerik.metro.css")
+                          .Compress(true).CacheDurationInDays(10000))
+                     )
+    @Html.Style("~/Content/Shared/Style/bootstrap.min.css")
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" type="text/css" rel="stylesheet">
+    @*<link href="fonts/glyphicons_pro/glyphicons.min.css" type="text/css" rel="stylesheet">*@
+    @Html.Style("~/Content/Shared/Style/responsive.css")
+    @Html.Style("~/Content/Shared/Style/theme.css")
+    @Html.Style("~/Content/Shared/Style/Common.css")
+
+    @*<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" type="text/css" rel="stylesheet" />*@
+    <link href="fonts/glyphicons_pro/glyphicons.min.css" type="text/css" rel="stylesheet" />
+    <link href="css/animate.css" type="text/css" rel="stylesheet" />
+    <link href="css/pages.css" type="text/css" rel="stylesheet" />
+    @*<link href="css/plugins.css" type="text/css" rel="stylesheet" />*@
+    @*<link href="css/demo.css" type="text/css" rel="stylesheet" />*@
+    <link href="css/custom.css" type="text/css" rel="stylesheet" />
+    <link href="img/favicon.ico" rel="shortcut icon" />
+    <script>
+        function viewDetails(id) {
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+            window.location.href = url + "/Details/" + id;
+        }
+    </script>
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0,0,0,0.6);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            border: 1px solid white;
+            z-index: 10000;
+        }
+
+        .jqsfield {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+    @RenderSection("Head", required: false)
+</head>
+<body class="dashboard">
+    @RenderSection("featured", required: false)
+    <div class="row">
+        @Html.Partial("_HeaderPartial")
+    </div>
+    <div id="main" style="margin-top: 5px;">
+        @Html.Partial("_SidebarPartial")
+        <section id="content">
+            @Html.Partial("_TopbarPartial")
+            <div class="container">
+                @RenderBody()
+            </div>
+            <div id="divFooter">
+                @Html.Partial("_FooterPartial")
+            </div>
+        </section>
+    </div>
+
+    @Html.Script("~/Scripts/jquery-1.8.2.min.js")
+    @Html.Script("~/Scripts/jquery.validate.min.js")
+    @Html.Script("~/Scripts/jquery.validate.unobtrusive.min.js")
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="js/uniform.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="~/Base/ITMCServiceCenterResource" type="text/javascript"></script>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        function rowBound(e) {
+            //var li = $(e.row).find('li').each(function (i) {
+            //    if ($(this).text().contains(',')) {
+            //        $(this).html($(this).html().replace(',', '</li><li>'));
+            //    }
+            //});
+        }
+    </script>
+    @Html.Telerik().ScriptRegistrar().jQuery(false)
+</body>
+
+</html>

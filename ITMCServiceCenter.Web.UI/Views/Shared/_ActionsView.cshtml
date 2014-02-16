@@ -1,0 +1,65 @@
+﻿@using ITMCServiceCenter.Web.UI
+@{
+    Layout = null;
+}
+@model ActionsModel
+<script type="text/javascript">
+    function saveAction() {
+        var newAction = $("#NewAction_Action");
+        if (newAction.val().length > 0) {
+            var form = $("#frmSaveAction");
+            var submitButton = $("#btnSaveAction");
+            submitButton.attr("disabled", "disabled");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize()
+            })
+           .success(function (result) {
+               if (result.length > 0) {
+                   newAction.val("");
+                   $("#actions").find("ul").children().last().after(result);
+               } else {
+                   alert("not saved..");
+               }
+           })
+           .error(function () {
+               alert("not saved..");
+           });
+            submitButton.removeAttr("disabled");
+        }
+        return false;
+    }
+
+    function appendModelName() {
+        var element = $("textarea").first();
+        var oldName = element.attr("name");
+        element.attr("name", "ActionsModel." + oldName);
+    }
+</script>
+<div id="row">
+    <div class="col-md-12 padding-none">
+
+
+
+        @using (Html.BeginForm("SaveAction", string.Concat(Model.RelatedType.ToString(), "s"), FormMethod.Post, new { id = "frmSaveAction", onload = "appendModelName()" }))
+        {
+            <div style="width: 320px !important;">
+                @Html.HiddenFor(model => model.RelateToId)
+                @Html.TextAreaFor(model => model.NewAction.Action, new { @style = "width: 320px !important; height: 50px !important; resize: none; margin-bottom: 3px;" })
+                <br />
+                @if (Model.ShowAddActionButton)
+                {
+                    <text>
+                        <div class="pull-right" id="submitButtonDiv">
+                        <input id="btnSaveAction" type="button" onclick="saveAction()" value="Add Action" />
+                    </div>
+                    </text>
+                }
+            </div>
+        }
+    </div>
+    <div class="col-xs-12 padding-none" id="actions">
+        @Html.Raw(Model.Actions.ToString())
+    </div>
+</div>

@@ -1,0 +1,61 @@
+
+
+@*@Html.Style("~/Content/Shared/Style/demo.css")
+    @Html.Style("~/Content/Shared/Style/custom.css")
+    @Html.Style("~/Content/Shared/Style/customizer.css")
+    @Html.Style("~/Content/Shared/Style/pages.css")*@
+
+@*@Html.Script("~/Content/Shared/Script/main.min.js")
+    @Html.Script("~/Content/Shared/Script/custom.min.js")
+    @Html.Script("~/Content/Shared/Script/customizer.min.js")
+    @Html.Script("~/Content/Shared/Script/uniform.min.js")
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js" type="text/javascript"></script>*@
+
+
+
+
+
+@*
+    ---------------- Code To Put Within <li> for sub menu items ------------------------------
+<ul class="nav sub-nav menu-open" id="resources">
+    <li><a href="customizer.html"><span class="glyphicons glyphicons-edit" style="width: 15px;"></span>Theme Customizer</a></li>
+    <li><a href="documentation/index.html"><span class="glyphicons glyphicons-book"></span>Documentation </a></li>
+</ul>*@
+
+@* <div class="alerts-menu">
+                    <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle" type="button"><span class="glyphicons glyphicons-bell"></span><b>3</b> </button>
+                    <ul role="menu" class="dropdown-menu checkbox-persist">
+                        <li class="menu-arrow">
+                            <div class="menu-arrow-up"></div>
+                        </li>
+                        <li class="dropdown-header">Recent Alerts <span class="pull-right glyphicons glyphicons-bell"></span></li>
+                        <li>
+                            <ul class="dropdown-items">
+                                <li>
+                                    <div class="item-icon"><i class="fa fa-facebook" style="color: #0066ad;"></i></div>
+                                    <div class="item-message"><a href="#">Facebook likes reached <b>8,200</b></a></div>
+                                </li>
+                                <li>
+                                    <div class="item-icon"><i class="fa fa-check" style="color: #5cb85c;"></i></div>
+                                    <div class="item-message"><a href="#">Robert <b>completed task</b> - Client SEO Revamp</a></div>
+                                </li>
+                                <li>
+                                    <div class="item-icon"><i class="fa fa-user" style="color: #f0ad4e"></i></div>
+                                    <div class="item-message"><a href="#"><b>Marko</b> logged 12 hours</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-footer"><a href="#">View All Alerts <i class="fa fa-caret-right"></i></a></li>
+                    </ul>
+                </div>*@
+
+
+
+
+

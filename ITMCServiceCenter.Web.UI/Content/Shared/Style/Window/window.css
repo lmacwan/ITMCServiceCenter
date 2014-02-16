@@ -1,0 +1,53 @@
+﻿.t-window .new {
+    width: 6em !important;
+    margin-left: -4px !important;
+}
+
+.t-window .row {
+    padding: 8px 14px 4px 8px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.t-window .t-numerictextbox .t-input, .t-window .t-datepicker, .t-window select {
+    width: 148px !important;
+}
+
+    .t-window .t-datepicker .t-input {
+        width: 126px !important;
+    }
+
+.t-window .t-window-content {
+    width: 476px !important;
+    min-height: 565px !important;
+}
+
+.t-window .myColPadding {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+t-widget {
+    background-color: white !important;
+}
+
+.t-window .col-md-8 {
+    padding-left: 0px !important;
+}
+
+    .t-window .col-md-8 label {
+        font-size: 11px;
+    }
+
+.t-window select {
+    height: 100px;
+}
+
+.t-window textarea {
+    resize: none;
+}
+
+.t-window input, .t-window select, .t-window textarea {
+    background-color: white;
+    border: solid 1px #808080;
+}

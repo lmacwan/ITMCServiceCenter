@@ -1,0 +1,92 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.Domain
+
+@{
+    ViewBag.Title = ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.titleProjectDocuments;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script type="text/javascript">
+        function viewNewProjectDocumentWindow() {
+            var newProjectDocumentWindow = $('#NewProjectDocumentWindow').data('tWindow');
+            var baseUrl = window.location.href;
+            var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url + "/GetNewProjectDocumentPartialAjax",
+                data: null,
+                dataType: 'text',
+                success: function (htmlContent) {
+                    $("#divNewProjectDocumentWindowContainer").html(htmlContent);
+                    newProjectDocumentWindow.center();
+                    newProjectDocumentWindow.open();
+                    $.validator.unobtrusive.parse($('#NewProjectDocumentWindow'));
+                },
+                error: function (msg) {
+                    alert('Error : ' + msg.toString());
+                }
+            });
+        }
+
+        function saveProject() {
+            var form = $("#frmSaveProjectDocument");
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize()
+            })
+            .success(function (result) {
+                if (result) {
+                    $('#NewProjectDocumentWindow').data('tWindow').close();
+                } else {
+                    alert("not saved..");
+                }
+            })
+            .error(function () {
+                alert("not saved..");
+            });
+        }
+    </script>
+}
+
+<div class="row">
+    <button id="btnViewNewProjectDocumentWindow" onclick="javaScript: viewNewProjectDocumentWindow();">New Document</button>
+    <div class="col-xs-12">
+        @(Html.Telerik().Grid<tbl_ProjectDocument_DTO>()
+            .Name("ProjectsDocumentsGrid")
+            .DataKeys(datakKey => datakKey.Add(key => key.Id))
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("GetAllProjectsDocumentsAjax", "Projects"))
+            .Columns(columns =>
+            {
+                columns.Bound(column => column.Title).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTitle);
+                columns.Bound(column => column.Description).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resDescription);
+                columns.Bound(column => column.ProjectTitle).Title(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resProject);
+                
+            })
+            .Sortable()
+            .Filterable()
+            .Pageable(paging => paging.PageSize(5).Style(GridPagerStyles.NextPreviousAndNumeric).Position(GridPagerPosition.Bottom))
+        )
+    </div>
+</div>
+@{ Html.Telerik().Window()
+        .Name("NewProjectDocumentWindow")
+        .Title("New Project Document")
+        .Draggable(true)
+        .Resizable(resizing =>
+                        resizing
+                            .Enabled(false)
+                  )
+        .Modal(true)
+        .Buttons(b => b.Close())
+        .Width(586)
+        .Visible(false)
+        .Content(@<text>
+                    <div id="divNewProjectDocumentWindowContainer"></div>
+                 </text>)
+        .Scrollable(true)
+        .Render();
+}

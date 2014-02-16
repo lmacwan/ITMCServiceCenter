@@ -1,0 +1,2931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ITMCServiceCenterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ITMCServiceCenterModelStoreContainer">
+    <EntitySet Name="tbl_Assignee" EntityType="ITMCServiceCenterModel.Store.tbl_Assignee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ChangeRequest" EntityType="ITMCServiceCenterModel.Store.tbl_ChangeRequest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ChangeRequestAction" EntityType="ITMCServiceCenterModel.Store.tbl_ChangeRequestAction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ChangeRequestDocument" EntityType="ITMCServiceCenterModel.Store.tbl_ChangeRequestDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Client" EntityType="ITMCServiceCenterModel.Store.tbl_Client" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Engineer" EntityType="ITMCServiceCenterModel.Store.tbl_Engineer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Entity" EntityType="ITMCServiceCenterModel.Store.tbl_Entity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Incident" EntityType="ITMCServiceCenterModel.Store.tbl_Incident" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_IncidentAction" EntityType="ITMCServiceCenterModel.Store.tbl_IncidentAction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_IncidentDocument" EntityType="ITMCServiceCenterModel.Store.tbl_IncidentDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_IssueTracker" EntityType="ITMCServiceCenterModel.Store.tbl_IssueTracker" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_IssueTrackerAction" EntityType="ITMCServiceCenterModel.Store.tbl_IssueTrackerAction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_IssueTrackerDocument" EntityType="ITMCServiceCenterModel.Store.tbl_IssueTrackerDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Project" EntityType="ITMCServiceCenterModel.Store.tbl_Project" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ProjectDocument" EntityType="ITMCServiceCenterModel.Store.tbl_ProjectDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ProjectTask" EntityType="ITMCServiceCenterModel.Store.tbl_ProjectTask" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ProjectTaskAction" EntityType="ITMCServiceCenterModel.Store.tbl_ProjectTaskAction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ProjectTaskDocument" EntityType="ITMCServiceCenterModel.Store.tbl_ProjectTaskDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ProjectTaskType" EntityType="ITMCServiceCenterModel.Store.tbl_ProjectTaskType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_RelatedIssue" EntityType="ITMCServiceCenterModel.Store.tbl_RelatedIssue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ServiceRequest" EntityType="ITMCServiceCenterModel.Store.tbl_ServiceRequest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ServiceRequestAction" EntityType="ITMCServiceCenterModel.Store.tbl_ServiceRequestAction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ServiceRequestDocument" EntityType="ITMCServiceCenterModel.Store.tbl_ServiceRequestDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Team" EntityType="ITMCServiceCenterModel.Store.tbl_Team" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_TeamMember" EntityType="ITMCServiceCenterModel.Store.tbl_TeamMember" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_TypeMaster" EntityType="ITMCServiceCenterModel.Store.tbl_TypeMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_UserMaster" EntityType="ITMCServiceCenterModel.Store.tbl_UserMaster" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId" Association="ITMCServiceCenterModel.Store.FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId">
+      <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+      <End Role="tbl_Assignee" EntitySet="tbl_Assignee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Assignee_tbl_UserMaster_UserId" Association="ITMCServiceCenterModel.Store.FK_tbl_Assignee_tbl_UserMaster_UserId">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_Assignee" EntitySet="tbl_Assignee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequest_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequest_tbl_Entity_PriorityId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequest_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequest_tbl_Entity_StatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequest_tbl_Project" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequest_tbl_Project">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequest_tbl_UserMaster_Approver" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequest_tbl_UserMaster_Approver">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequestAction_tbl_ChangeRequest" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequestAction_tbl_ChangeRequest">
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+      <End Role="tbl_ChangeRequestAction" EntitySet="tbl_ChangeRequestAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ChangeRequestDocument_tbl_ChangeRequest" Association="ITMCServiceCenterModel.Store.FK_tbl_ChangeRequestDocument_tbl_ChangeRequest">
+      <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+      <End Role="tbl_ChangeRequestDocument" EntitySet="tbl_ChangeRequestDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Project_tbl_Client" Association="ITMCServiceCenterModel.Store.FK_tbl_Project_tbl_Client">
+      <End Role="tbl_Client" EntitySet="tbl_Client" />
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Engineers_tbl_TypeMaster" Association="ITMCServiceCenterModel.Store.FK_tbl_Engineers_tbl_TypeMaster">
+      <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+      <End Role="tbl_Engineer" EntitySet="tbl_Engineer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Engineers_tbl_UserMaster" Association="ITMCServiceCenterModel.Store.FK_tbl_Engineers_tbl_UserMaster">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_Engineer" EntitySet="tbl_Engineer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Entity_tbl_TypeMaster" Association="ITMCServiceCenterModel.Store.FK_tbl_Entity_tbl_TypeMaster">
+      <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Incident_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_Incident_tbl_Entity_StatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IssueTracker_tbl_Entity_CategoryId" Association="ITMCServiceCenterModel.Store.FK_tbl_IssueTracker_tbl_Entity_CategoryId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IssueTracker_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.Store.FK_tbl_IssueTracker_tbl_Entity_PriorityId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IssueTracker_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_IssueTracker_tbl_Entity_StatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Project_tbl_Entities_ProjectType" Association="ITMCServiceCenterModel.Store.FK_tbl_Project_tbl_Entities_ProjectType">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Project_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_Project_tbl_Entity_StatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTask_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTask_tbl_Entity_PriorityId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTask_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTask_tbl_Entity_StatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequest_tbl_Entity_PriorityId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequest_tbl_Entity_StatusId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Team_tbl_Entity" Association="ITMCServiceCenterModel.Store.FK_tbl_Team_tbl_Entity">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_Team" EntitySet="tbl_Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_UserMaster_tbl_Entity_RoleId" Association="ITMCServiceCenterModel.Store.FK_tbl_UserMaster_tbl_Entity_RoleId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_UserMaster_tbl_UserMaster_DesignationId" Association="ITMCServiceCenterModel.Store.FK_tbl_UserMaster_tbl_UserMaster_DesignationId">
+      <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Incident_tbl_Project" Association="ITMCServiceCenterModel.Store.FK_tbl_Incident_tbl_Project">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Incident_tbl_UserMaster_RequestedBy" Association="ITMCServiceCenterModel.Store.FK_tbl_Incident_tbl_UserMaster_RequestedBy">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IncidentAction_tbl_Incident" Association="ITMCServiceCenterModel.Store.FK_tbl_IncidentAction_tbl_Incident">
+      <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+      <End Role="tbl_IncidentAction" EntitySet="tbl_IncidentAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IncidentDocument_tbl_Incident" Association="ITMCServiceCenterModel.Store.FK_tbl_IncidentDocument_tbl_Incident">
+      <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+      <End Role="tbl_IncidentDocument" EntitySet="tbl_IncidentDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IssueTracker_tbl_Project" Association="ITMCServiceCenterModel.Store.FK_tbl_IssueTracker_tbl_Project">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IssueTrackerAction_tbl_IssueTracker" Association="ITMCServiceCenterModel.Store.FK_tbl_IssueTrackerAction_tbl_IssueTracker">
+      <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+      <End Role="tbl_IssueTrackerAction" EntitySet="tbl_IssueTrackerAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IssueTrackerDocument_tbl_IssueTracker" Association="ITMCServiceCenterModel.Store.FK_tbl_IssueTrackerDocument_tbl_IssueTracker">
+      <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+      <End Role="tbl_IssueTrackerDocument" EntitySet="tbl_IssueTrackerDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Project_tbl_UserMaster_Approver" Association="ITMCServiceCenterModel.Store.FK_tbl_Project_tbl_UserMaster_Approver">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Project_tbl_UserMaster_Manager" Association="ITMCServiceCenterModel.Store.FK_tbl_Project_tbl_UserMaster_Manager">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Project_tbl_UserMaster_QA" Association="ITMCServiceCenterModel.Store.FK_tbl_Project_tbl_UserMaster_QA">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectDocument_tbl_Project" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectDocument_tbl_Project">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_ProjectDocument" EntitySet="tbl_ProjectDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTask_tbl_Project_ProjectId" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTask_tbl_Project_ProjectId">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTaskType_tbl_Project" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTaskType_tbl_Project">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_ProjectTaskType" EntitySet="tbl_ProjectTaskType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Project" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequest_tbl_Project">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Project_ProjectId" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequest_tbl_Project_ProjectId">
+      <End Role="tbl_Project" EntitySet="tbl_Project" />
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTask_tbl_UserMaster_QA" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTask_tbl_UserMaster_QA">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTaskAction_tbl_ProjectTask" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTaskAction_tbl_ProjectTask">
+      <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+      <End Role="tbl_ProjectTaskAction" EntitySet="tbl_ProjectTaskAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ProjectTaskDocument_tbl_ProjectTask" Association="ITMCServiceCenterModel.Store.FK_tbl_ProjectTaskDocument_tbl_ProjectTask">
+      <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+      <End Role="tbl_ProjectTaskDocument" EntitySet="tbl_ProjectTaskDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequestAction_tbl_ServiceRequest" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequestAction_tbl_ServiceRequest">
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+      <End Role="tbl_ServiceRequestAction" EntitySet="tbl_ServiceRequestAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ServiceRequestDocument_tbl_ServiceRequest" Association="ITMCServiceCenterModel.Store.FK_tbl_ServiceRequestDocument_tbl_ServiceRequest">
+      <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+      <End Role="tbl_ServiceRequestDocument" EntitySet="tbl_ServiceRequestDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Team_tbl_TypeMaster" Association="ITMCServiceCenterModel.Store.FK_tbl_Team_tbl_TypeMaster">
+      <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+      <End Role="tbl_Team" EntitySet="tbl_Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TeamMember_tbl_Team" Association="ITMCServiceCenterModel.Store.FK_tbl_TeamMember_tbl_Team">
+      <End Role="tbl_Team" EntitySet="tbl_Team" />
+      <End Role="tbl_TeamMember" EntitySet="tbl_TeamMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TeamMember_tbl_UserMaster" Association="ITMCServiceCenterModel.Store.FK_tbl_TeamMember_tbl_UserMaster">
+      <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+      <End Role="tbl_TeamMember" EntitySet="tbl_TeamMember" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_Assignee">
+    <Key>
+      <PropertyRef Name="RelateTypeId" />
+      <PropertyRef Name="RelatedToId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RelateTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="RelatedToId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ChangeRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestedBy" Type="int" Nullable="false" />
+    <Property Name="Approver" Type="int" Nullable="true" />
+    <Property Name="ChangeWriter" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="PriorityId" Type="smallint" Nullable="false" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="EstimatedHours" Type="smallint" Nullable="false" />
+    <Property Name="PercentComplete" Type="tinyint" Nullable="false" />
+    <Property Name="Impact" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PoNo" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="RequestedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ChangeRequestAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChangeRequestId" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ChangeRequestDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChangeRequestId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Location" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" Nullable="true" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="tbl_Engineer">
+    <Key>
+      <PropertyRef Name="RelateTypeId" />
+      <PropertyRef Name="RelatedToId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RelateTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="RelatedToId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Entity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeMasterId" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Incident">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestedBy" Type="int" Nullable="false" />
+    <Property Name="LevelId" Type="smallint" Nullable="false" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="EstimatedHours" Type="smallint" Nullable="true" />
+    <Property Name="PercentComplete" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="true" />
+    <Property Name="IncidentOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_IncidentAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IncidentId" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_IncidentDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IncidentId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_IssueTracker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="PriorityId" Type="smallint" Nullable="false" />
+    <Property Name="CategoryId" Type="smallint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="true" />
+    <Property Name="Module" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_IssueTrackerAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IssueTrackerId" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_IssueTrackerDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IssueTrackerId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="TypeId" Type="smallint" Nullable="false" />
+    <Property Name="Manager" Type="int" Nullable="true" />
+    <Property Name="Approver" Type="int" Nullable="true" />
+    <Property Name="QA" Type="int" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="EstimatedHours" Type="smallint" Nullable="false" />
+    <Property Name="EstimatedCost" Type="int" Nullable="true" />
+    <Property Name="PoNo" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Site" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectTask">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="PriorityId" Type="smallint" Nullable="false" />
+    <Property Name="TypeId" Type="smallint" Nullable="false" />
+    <Property Name="QA" Type="int" Nullable="true" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="EstimatedHours" Type="smallint" Nullable="true" />
+    <Property Name="EstimatedCost" Type="smallint" Nullable="true" />
+    <Property Name="PercentComplete" Type="tinyint" Nullable="false" />
+    <Property Name="QAStartDate" Type="datetime" Nullable="true" />
+    <Property Name="QAEndDate" Type="datetime" Nullable="true" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectTaskAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectTaskId" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectTaskDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectTaskId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectTaskType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_RelatedIssue">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="RelatedIssueId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RelatedIssueId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ServiceRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestedBy" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="smallint" Nullable="false" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="PriorityId" Type="smallint" Nullable="false" />
+    <Property Name="PreviousStatusId" Type="smallint" Nullable="true" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="EstimatedHours" Type="smallint" Nullable="false" />
+    <Property Name="PercentComplete" Type="tinyint" Nullable="false" />
+    <Property Name="PoNo" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="true" />
+    <Property Name="RequestedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ServiceRequestAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceRequestId" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ServiceRequestDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceRequestId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RelatedTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="RelatedToId" Type="int" Nullable="false" />
+    <Property Name="TypeId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_TeamMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_TypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_UserMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesignationId" Type="smallint" Nullable="false" />
+    <Property Name="RoleId" Type="smallint" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsClient" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId">
+    <End Role="tbl_TypeMaster" Type="ITMCServiceCenterModel.Store.tbl_TypeMaster" Multiplicity="1" />
+    <End Role="tbl_Assignee" Type="ITMCServiceCenterModel.Store.tbl_Assignee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Assignee">
+        <PropertyRef Name="RelateTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Assignee_tbl_UserMaster_UserId">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_Assignee" Type="ITMCServiceCenterModel.Store.tbl_Assignee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Assignee">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequest_tbl_Entity_PriorityId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequest">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequest_tbl_Entity_StatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequest">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequest_tbl_Project">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequest">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequest_tbl_UserMaster_Approver">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="0..1" />
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequest">
+        <PropertyRef Name="Approver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequest">
+        <PropertyRef Name="ChangeWriter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequest">
+        <PropertyRef Name="RequestedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequestAction_tbl_ChangeRequest">
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="1" />
+    <End Role="tbl_ChangeRequestAction" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequestAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ChangeRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequestAction">
+        <PropertyRef Name="ChangeRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ChangeRequestDocument_tbl_ChangeRequest">
+    <End Role="tbl_ChangeRequest" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequest" Multiplicity="1" />
+    <End Role="tbl_ChangeRequestDocument" Type="ITMCServiceCenterModel.Store.tbl_ChangeRequestDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ChangeRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ChangeRequestDocument">
+        <PropertyRef Name="ChangeRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Project_tbl_Client">
+    <End Role="tbl_Client" Type="ITMCServiceCenterModel.Store.tbl_Client" Multiplicity="1" />
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Project">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Engineers_tbl_TypeMaster">
+    <End Role="tbl_TypeMaster" Type="ITMCServiceCenterModel.Store.tbl_TypeMaster" Multiplicity="1" />
+    <End Role="tbl_Engineer" Type="ITMCServiceCenterModel.Store.tbl_Engineer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Engineer">
+        <PropertyRef Name="RelateTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Engineers_tbl_UserMaster">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_Engineer" Type="ITMCServiceCenterModel.Store.tbl_Engineer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Engineer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Entity_tbl_TypeMaster">
+    <End Role="tbl_TypeMaster" Type="ITMCServiceCenterModel.Store.tbl_TypeMaster" Multiplicity="1" />
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Entity">
+        <PropertyRef Name="TypeMasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Incident_tbl_Entity_StatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_Incident" Type="ITMCServiceCenterModel.Store.tbl_Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Incident">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IssueTracker_tbl_Entity_CategoryId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_IssueTracker" Type="ITMCServiceCenterModel.Store.tbl_IssueTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IssueTracker">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IssueTracker_tbl_Entity_PriorityId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_IssueTracker" Type="ITMCServiceCenterModel.Store.tbl_IssueTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IssueTracker">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IssueTracker_tbl_Entity_StatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_IssueTracker" Type="ITMCServiceCenterModel.Store.tbl_IssueTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IssueTracker">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Project_tbl_Entities_ProjectType">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Project">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Project_tbl_Entity_StatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Project">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTask_tbl_Entity_PriorityId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_ProjectTask" Type="ITMCServiceCenterModel.Store.tbl_ProjectTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTask">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTask_tbl_Entity_StatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_ProjectTask" Type="ITMCServiceCenterModel.Store.tbl_ProjectTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTask">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="0..1" />
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequest">
+        <PropertyRef Name="PreviousStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequest_tbl_Entity_PriorityId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequest">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequest_tbl_Entity_StatusId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequest">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Team_tbl_Entity">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_Team" Type="ITMCServiceCenterModel.Store.tbl_Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Team">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_UserMaster_tbl_Entity_RoleId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_UserMaster">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_UserMaster_tbl_UserMaster_DesignationId">
+    <End Role="tbl_Entity" Type="ITMCServiceCenterModel.Store.tbl_Entity" Multiplicity="1" />
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Entity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_UserMaster">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Incident_tbl_Project">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_Incident" Type="ITMCServiceCenterModel.Store.tbl_Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Incident">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Incident_tbl_UserMaster_RequestedBy">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_Incident" Type="ITMCServiceCenterModel.Store.tbl_Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Incident">
+        <PropertyRef Name="RequestedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IncidentAction_tbl_Incident">
+    <End Role="tbl_Incident" Type="ITMCServiceCenterModel.Store.tbl_Incident" Multiplicity="1" />
+    <End Role="tbl_IncidentAction" Type="ITMCServiceCenterModel.Store.tbl_IncidentAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Incident">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IncidentAction">
+        <PropertyRef Name="IncidentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IncidentDocument_tbl_Incident">
+    <End Role="tbl_Incident" Type="ITMCServiceCenterModel.Store.tbl_Incident" Multiplicity="1" />
+    <End Role="tbl_IncidentDocument" Type="ITMCServiceCenterModel.Store.tbl_IncidentDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Incident">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IncidentDocument">
+        <PropertyRef Name="IncidentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IssueTracker_tbl_Project">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_IssueTracker" Type="ITMCServiceCenterModel.Store.tbl_IssueTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IssueTracker">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IssueTrackerAction_tbl_IssueTracker">
+    <End Role="tbl_IssueTracker" Type="ITMCServiceCenterModel.Store.tbl_IssueTracker" Multiplicity="1" />
+    <End Role="tbl_IssueTrackerAction" Type="ITMCServiceCenterModel.Store.tbl_IssueTrackerAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_IssueTracker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IssueTrackerAction">
+        <PropertyRef Name="IssueTrackerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IssueTrackerDocument_tbl_IssueTracker">
+    <End Role="tbl_IssueTracker" Type="ITMCServiceCenterModel.Store.tbl_IssueTracker" Multiplicity="1" />
+    <End Role="tbl_IssueTrackerDocument" Type="ITMCServiceCenterModel.Store.tbl_IssueTrackerDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_IssueTracker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IssueTrackerDocument">
+        <PropertyRef Name="IssueTrackerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Project_tbl_UserMaster_Approver">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="0..1" />
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Project">
+        <PropertyRef Name="Approver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Project_tbl_UserMaster_Manager">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="0..1" />
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Project">
+        <PropertyRef Name="Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Project_tbl_UserMaster_QA">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="0..1" />
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Project">
+        <PropertyRef Name="QA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectDocument_tbl_Project">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_ProjectDocument" Type="ITMCServiceCenterModel.Store.tbl_ProjectDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectDocument">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTask_tbl_Project_ProjectId">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_ProjectTask" Type="ITMCServiceCenterModel.Store.tbl_ProjectTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTask">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTaskType_tbl_Project">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_ProjectTaskType" Type="ITMCServiceCenterModel.Store.tbl_ProjectTaskType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTaskType">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequest_tbl_Project">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequest">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequest_tbl_Project_ProjectId">
+    <End Role="tbl_Project" Type="ITMCServiceCenterModel.Store.tbl_Project" Multiplicity="1" />
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequest">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTask_tbl_UserMaster_QA">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="0..1" />
+    <End Role="tbl_ProjectTask" Type="ITMCServiceCenterModel.Store.tbl_ProjectTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTask">
+        <PropertyRef Name="QA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTaskAction_tbl_ProjectTask">
+    <End Role="tbl_ProjectTask" Type="ITMCServiceCenterModel.Store.tbl_ProjectTask" Multiplicity="1" />
+    <End Role="tbl_ProjectTaskAction" Type="ITMCServiceCenterModel.Store.tbl_ProjectTaskAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ProjectTask">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTaskAction">
+        <PropertyRef Name="ProjectTaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ProjectTaskDocument_tbl_ProjectTask">
+    <End Role="tbl_ProjectTask" Type="ITMCServiceCenterModel.Store.tbl_ProjectTask" Multiplicity="1" />
+    <End Role="tbl_ProjectTaskDocument" Type="ITMCServiceCenterModel.Store.tbl_ProjectTaskDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ProjectTask">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectTaskDocument">
+        <PropertyRef Name="ProjectTaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequest">
+        <PropertyRef Name="RequestedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequestAction_tbl_ServiceRequest">
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="1" />
+    <End Role="tbl_ServiceRequestAction" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequestAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ServiceRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequestAction">
+        <PropertyRef Name="ServiceRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ServiceRequestDocument_tbl_ServiceRequest">
+    <End Role="tbl_ServiceRequest" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequest" Multiplicity="1" />
+    <End Role="tbl_ServiceRequestDocument" Type="ITMCServiceCenterModel.Store.tbl_ServiceRequestDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ServiceRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceRequestDocument">
+        <PropertyRef Name="ServiceRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Team_tbl_TypeMaster">
+    <End Role="tbl_TypeMaster" Type="ITMCServiceCenterModel.Store.tbl_TypeMaster" Multiplicity="1" />
+    <End Role="tbl_Team" Type="ITMCServiceCenterModel.Store.tbl_Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Team">
+        <PropertyRef Name="RelatedTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TeamMember_tbl_Team">
+    <End Role="tbl_Team" Type="ITMCServiceCenterModel.Store.tbl_Team" Multiplicity="1" />
+    <End Role="tbl_TeamMember" Type="ITMCServiceCenterModel.Store.tbl_TeamMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_TeamMember">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TeamMember_tbl_UserMaster">
+    <End Role="tbl_UserMaster" Type="ITMCServiceCenterModel.Store.tbl_UserMaster" Multiplicity="1" />
+    <End Role="tbl_TeamMember" Type="ITMCServiceCenterModel.Store.tbl_TeamMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_TeamMember">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITMCServiceCenterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ITMCServiceCenter_SQLServer" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Assignee" EntityType="ITMCServiceCenterModel.tbl_Assignee" />
+          <EntitySet Name="tbl_ChangeRequest" EntityType="ITMCServiceCenterModel.tbl_ChangeRequest" />
+          <EntitySet Name="tbl_ChangeRequestAction" EntityType="ITMCServiceCenterModel.tbl_ChangeRequestAction" />
+          <EntitySet Name="tbl_ChangeRequestDocument" EntityType="ITMCServiceCenterModel.tbl_ChangeRequestDocument" />
+          <EntitySet Name="tbl_Client" EntityType="ITMCServiceCenterModel.tbl_Client" />
+          <EntitySet Name="tbl_Engineer" EntityType="ITMCServiceCenterModel.tbl_Engineer" />
+          <EntitySet Name="tbl_Entity" EntityType="ITMCServiceCenterModel.tbl_Entity" />
+          <EntitySet Name="tbl_Incident" EntityType="ITMCServiceCenterModel.tbl_Incident" />
+          <EntitySet Name="tbl_IncidentAction" EntityType="ITMCServiceCenterModel.tbl_IncidentAction" />
+          <EntitySet Name="tbl_IncidentDocument" EntityType="ITMCServiceCenterModel.tbl_IncidentDocument" />
+          <EntitySet Name="tbl_IssueTracker" EntityType="ITMCServiceCenterModel.tbl_IssueTracker" />
+          <EntitySet Name="tbl_IssueTrackerAction" EntityType="ITMCServiceCenterModel.tbl_IssueTrackerAction" />
+          <EntitySet Name="tbl_IssueTrackerDocument" EntityType="ITMCServiceCenterModel.tbl_IssueTrackerDocument" />
+          <EntitySet Name="tbl_Project" EntityType="ITMCServiceCenterModel.tbl_Project" />
+          <EntitySet Name="tbl_ProjectDocument" EntityType="ITMCServiceCenterModel.tbl_ProjectDocument" />
+          <EntitySet Name="tbl_ProjectTask" EntityType="ITMCServiceCenterModel.tbl_ProjectTask" />
+          <EntitySet Name="tbl_ProjectTaskAction" EntityType="ITMCServiceCenterModel.tbl_ProjectTaskAction" />
+          <EntitySet Name="tbl_ProjectTaskDocument" EntityType="ITMCServiceCenterModel.tbl_ProjectTaskDocument" />
+          <EntitySet Name="tbl_ProjectTaskType" EntityType="ITMCServiceCenterModel.tbl_ProjectTaskType" />
+          <EntitySet Name="tbl_RelatedIssue" EntityType="ITMCServiceCenterModel.tbl_RelatedIssue" />
+          <EntitySet Name="tbl_ServiceRequest" EntityType="ITMCServiceCenterModel.tbl_ServiceRequest" />
+          <EntitySet Name="tbl_ServiceRequestAction" EntityType="ITMCServiceCenterModel.tbl_ServiceRequestAction" />
+          <EntitySet Name="tbl_ServiceRequestDocument" EntityType="ITMCServiceCenterModel.tbl_ServiceRequestDocument" />
+          <EntitySet Name="tbl_Team" EntityType="ITMCServiceCenterModel.tbl_Team" />
+          <EntitySet Name="tbl_TeamMember" EntityType="ITMCServiceCenterModel.tbl_TeamMember" />
+          <EntitySet Name="tbl_TypeMaster" EntityType="ITMCServiceCenterModel.tbl_TypeMaster" />
+          <EntitySet Name="tbl_UserMaster" EntityType="ITMCServiceCenterModel.tbl_UserMaster" />
+          <AssociationSet Name="FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId" Association="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId">
+            <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+            <End Role="tbl_Assignee" EntitySet="tbl_Assignee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Assignee_tbl_UserMaster_UserId" Association="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_UserMaster_UserId">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_Assignee" EntitySet="tbl_Assignee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequest_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_PriorityId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequest_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_StatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequest_tbl_Project" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Project">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequest_tbl_UserMaster_Approver" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_Approver">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequestAction_tbl_ChangeRequest" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequestAction_tbl_ChangeRequest">
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+            <End Role="tbl_ChangeRequestAction" EntitySet="tbl_ChangeRequestAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ChangeRequestDocument_tbl_ChangeRequest" Association="ITMCServiceCenterModel.FK_tbl_ChangeRequestDocument_tbl_ChangeRequest">
+            <End Role="tbl_ChangeRequest" EntitySet="tbl_ChangeRequest" />
+            <End Role="tbl_ChangeRequestDocument" EntitySet="tbl_ChangeRequestDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Project_tbl_Client" Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_Client">
+            <End Role="tbl_Client" EntitySet="tbl_Client" />
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Engineers_tbl_TypeMaster" Association="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_TypeMaster">
+            <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+            <End Role="tbl_Engineer" EntitySet="tbl_Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Engineers_tbl_UserMaster" Association="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_UserMaster">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_Engineer" EntitySet="tbl_Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Entity_tbl_TypeMaster" Association="ITMCServiceCenterModel.FK_tbl_Entity_tbl_TypeMaster">
+            <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Incident_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Entity_StatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IssueTracker_tbl_Entity_CategoryId" Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_CategoryId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IssueTracker_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_PriorityId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IssueTracker_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_StatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Project_tbl_Entities_ProjectType" Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entities_ProjectType">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Project_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entity_StatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTask_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_PriorityId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTask_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_StatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Entity_PriorityId" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PriorityId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Entity_StatusId" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_StatusId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Team_tbl_Entity" Association="ITMCServiceCenterModel.FK_tbl_Team_tbl_Entity">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_Team" EntitySet="tbl_Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_UserMaster_tbl_Entity_RoleId" Association="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_Entity_RoleId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_UserMaster_tbl_UserMaster_DesignationId" Association="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_UserMaster_DesignationId">
+            <End Role="tbl_Entity" EntitySet="tbl_Entity" />
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Incident_tbl_Project" Association="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Project">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Incident_tbl_UserMaster_RequestedBy" Association="ITMCServiceCenterModel.FK_tbl_Incident_tbl_UserMaster_RequestedBy">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IncidentAction_tbl_Incident" Association="ITMCServiceCenterModel.FK_tbl_IncidentAction_tbl_Incident">
+            <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+            <End Role="tbl_IncidentAction" EntitySet="tbl_IncidentAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IncidentDocument_tbl_Incident" Association="ITMCServiceCenterModel.FK_tbl_IncidentDocument_tbl_Incident">
+            <End Role="tbl_Incident" EntitySet="tbl_Incident" />
+            <End Role="tbl_IncidentDocument" EntitySet="tbl_IncidentDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IssueTracker_tbl_Project" Association="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Project">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IssueTrackerAction_tbl_IssueTracker" Association="ITMCServiceCenterModel.FK_tbl_IssueTrackerAction_tbl_IssueTracker">
+            <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+            <End Role="tbl_IssueTrackerAction" EntitySet="tbl_IssueTrackerAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_IssueTrackerDocument_tbl_IssueTracker" Association="ITMCServiceCenterModel.FK_tbl_IssueTrackerDocument_tbl_IssueTracker">
+            <End Role="tbl_IssueTracker" EntitySet="tbl_IssueTracker" />
+            <End Role="tbl_IssueTrackerDocument" EntitySet="tbl_IssueTrackerDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Project_tbl_UserMaster_Approver" Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Approver">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Project_tbl_UserMaster_Manager" Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Manager">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Project_tbl_UserMaster_QA" Association="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_QA">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectDocument_tbl_Project" Association="ITMCServiceCenterModel.FK_tbl_ProjectDocument_tbl_Project">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_ProjectDocument" EntitySet="tbl_ProjectDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTask_tbl_Project_ProjectId" Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Project_ProjectId">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTaskType_tbl_Project" Association="ITMCServiceCenterModel.FK_tbl_ProjectTaskType_tbl_Project">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_ProjectTaskType" EntitySet="tbl_ProjectTaskType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Project" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequest_tbl_Project_ProjectId" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project_ProjectId">
+            <End Role="tbl_Project" EntitySet="tbl_Project" />
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTask_tbl_UserMaster_QA" Association="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_UserMaster_QA">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTaskAction_tbl_ProjectTask" Association="ITMCServiceCenterModel.FK_tbl_ProjectTaskAction_tbl_ProjectTask">
+            <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+            <End Role="tbl_ProjectTaskAction" EntitySet="tbl_ProjectTaskAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ProjectTaskDocument_tbl_ProjectTask" Association="ITMCServiceCenterModel.FK_tbl_ProjectTaskDocument_tbl_ProjectTask">
+            <End Role="tbl_ProjectTask" EntitySet="tbl_ProjectTask" />
+            <End Role="tbl_ProjectTaskDocument" EntitySet="tbl_ProjectTaskDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequestAction_tbl_ServiceRequest" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequestAction_tbl_ServiceRequest">
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+            <End Role="tbl_ServiceRequestAction" EntitySet="tbl_ServiceRequestAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_ServiceRequestDocument_tbl_ServiceRequest" Association="ITMCServiceCenterModel.FK_tbl_ServiceRequestDocument_tbl_ServiceRequest">
+            <End Role="tbl_ServiceRequest" EntitySet="tbl_ServiceRequest" />
+            <End Role="tbl_ServiceRequestDocument" EntitySet="tbl_ServiceRequestDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Team_tbl_TypeMaster" Association="ITMCServiceCenterModel.FK_tbl_Team_tbl_TypeMaster">
+            <End Role="tbl_TypeMaster" EntitySet="tbl_TypeMaster" />
+            <End Role="tbl_Team" EntitySet="tbl_Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TeamMember_tbl_Team" Association="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_Team">
+            <End Role="tbl_Team" EntitySet="tbl_Team" />
+            <End Role="tbl_TeamMember" EntitySet="tbl_TeamMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TeamMember_tbl_UserMaster" Association="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_UserMaster">
+            <End Role="tbl_UserMaster" EntitySet="tbl_UserMaster" />
+            <End Role="tbl_TeamMember" EntitySet="tbl_TeamMember" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_Assignee">
+          <Key>
+            <PropertyRef Name="RelateTypeId" />
+            <PropertyRef Name="RelatedToId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Byte" Name="RelateTypeId" Nullable="false" />
+          <Property Type="Int32" Name="RelatedToId" Nullable="false" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="tbl_TypeMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId" FromRole="tbl_Assignee" ToRole="tbl_TypeMaster" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_UserMaster_UserId" FromRole="tbl_Assignee" ToRole="tbl_UserMaster" />
+        </EntityType>
+        <EntityType Name="tbl_ChangeRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RequestedBy" Nullable="false" />
+          <Property Type="Int32" Name="Approver" />
+          <Property Type="Int32" Name="ChangeWriter" Nullable="false" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="Int16" Name="PriorityId" Nullable="false" />
+          <Property Type="Int16" Name="StatusId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="Int16" Name="EstimatedHours" Nullable="false" />
+          <Property Type="Byte" Name="PercentComplete" Nullable="false" />
+          <Property Type="String" Name="Impact" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PoNo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="RequestedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_PriorityId" FromRole="tbl_ChangeRequest" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity1" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_StatusId" FromRole="tbl_ChangeRequest" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Project" FromRole="tbl_ChangeRequest" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_Approver" FromRole="tbl_ChangeRequest" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_UserMaster1" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter" FromRole="tbl_ChangeRequest" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_UserMaster2" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy" FromRole="tbl_ChangeRequest" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_ChangeRequestAction" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequestAction_tbl_ChangeRequest" FromRole="tbl_ChangeRequest" ToRole="tbl_ChangeRequestAction" />
+          <NavigationProperty Name="tbl_ChangeRequestDocument" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequestDocument_tbl_ChangeRequest" FromRole="tbl_ChangeRequest" ToRole="tbl_ChangeRequestDocument" />
+        </EntityType>
+        <EntityType Name="tbl_ChangeRequestAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ChangeRequestId" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_ChangeRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequestAction_tbl_ChangeRequest" FromRole="tbl_ChangeRequestAction" ToRole="tbl_ChangeRequest" />
+        </EntityType>
+        <EntityType Name="tbl_ChangeRequestDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ChangeRequestId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_ChangeRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequestDocument_tbl_ChangeRequest" FromRole="tbl_ChangeRequestDocument" ToRole="tbl_ChangeRequest" />
+        </EntityType>
+        <EntityType Name="tbl_Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactNo" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_Client" FromRole="tbl_Client" ToRole="tbl_Project" />
+        </EntityType>
+        <EntityType Name="tbl_Engineer">
+          <Key>
+            <PropertyRef Name="RelateTypeId" />
+            <PropertyRef Name="RelatedToId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Byte" Name="RelateTypeId" Nullable="false" />
+          <Property Type="Int32" Name="RelatedToId" Nullable="false" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="tbl_TypeMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_TypeMaster" FromRole="tbl_Engineer" ToRole="tbl_TypeMaster" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_UserMaster" FromRole="tbl_Engineer" ToRole="tbl_UserMaster" />
+        </EntityType>
+        <EntityType Name="tbl_Entity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int16" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TypeMasterId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_ChangeRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_PriorityId" FromRole="tbl_Entity" ToRole="tbl_ChangeRequest" />
+          <NavigationProperty Name="tbl_ChangeRequest1" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Entity_StatusId" FromRole="tbl_Entity" ToRole="tbl_ChangeRequest" />
+          <NavigationProperty Name="tbl_TypeMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Entity_tbl_TypeMaster" FromRole="tbl_Entity" ToRole="tbl_TypeMaster" />
+          <NavigationProperty Name="tbl_Incident" Relationship="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Entity_StatusId" FromRole="tbl_Entity" ToRole="tbl_Incident" />
+          <NavigationProperty Name="tbl_IssueTracker" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_CategoryId" FromRole="tbl_Entity" ToRole="tbl_IssueTracker" />
+          <NavigationProperty Name="tbl_IssueTracker1" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_PriorityId" FromRole="tbl_Entity" ToRole="tbl_IssueTracker" />
+          <NavigationProperty Name="tbl_IssueTracker2" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_StatusId" FromRole="tbl_Entity" ToRole="tbl_IssueTracker" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entities_ProjectType" FromRole="tbl_Entity" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_Project1" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entity_StatusId" FromRole="tbl_Entity" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_ProjectTask" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_PriorityId" FromRole="tbl_Entity" ToRole="tbl_ProjectTask" />
+          <NavigationProperty Name="tbl_ProjectTask1" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_StatusId" FromRole="tbl_Entity" ToRole="tbl_ProjectTask" />
+          <NavigationProperty Name="tbl_ServiceRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId" FromRole="tbl_Entity" ToRole="tbl_ServiceRequest" />
+          <NavigationProperty Name="tbl_ServiceRequest1" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PriorityId" FromRole="tbl_Entity" ToRole="tbl_ServiceRequest" />
+          <NavigationProperty Name="tbl_ServiceRequest2" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_StatusId" FromRole="tbl_Entity" ToRole="tbl_ServiceRequest" />
+          <NavigationProperty Name="tbl_Team" Relationship="ITMCServiceCenterModel.FK_tbl_Team_tbl_Entity" FromRole="tbl_Entity" ToRole="tbl_Team" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_Entity_RoleId" FromRole="tbl_Entity" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_UserMaster1" Relationship="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_UserMaster_DesignationId" FromRole="tbl_Entity" ToRole="tbl_UserMaster" />
+        </EntityType>
+        <EntityType Name="tbl_Incident">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RequestedBy" Nullable="false" />
+          <Property Type="Int16" Name="LevelId" Nullable="false" />
+          <Property Type="Int16" Name="StatusId" Nullable="false" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="Int16" Name="EstimatedHours" />
+          <Property Type="Byte" Name="PercentComplete" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="DateTime" Name="IncidentOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Entity_StatusId" FromRole="tbl_Incident" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Project" FromRole="tbl_Incident" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Incident_tbl_UserMaster_RequestedBy" FromRole="tbl_Incident" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_IncidentAction" Relationship="ITMCServiceCenterModel.FK_tbl_IncidentAction_tbl_Incident" FromRole="tbl_Incident" ToRole="tbl_IncidentAction" />
+          <NavigationProperty Name="tbl_IncidentDocument" Relationship="ITMCServiceCenterModel.FK_tbl_IncidentDocument_tbl_Incident" FromRole="tbl_Incident" ToRole="tbl_IncidentDocument" />
+        </EntityType>
+        <EntityType Name="tbl_IncidentAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IncidentId" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_Incident" Relationship="ITMCServiceCenterModel.FK_tbl_IncidentAction_tbl_Incident" FromRole="tbl_IncidentAction" ToRole="tbl_Incident" />
+        </EntityType>
+        <EntityType Name="tbl_IncidentDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IncidentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_Incident" Relationship="ITMCServiceCenterModel.FK_tbl_IncidentDocument_tbl_Incident" FromRole="tbl_IncidentDocument" ToRole="tbl_Incident" />
+        </EntityType>
+        <EntityType Name="tbl_IssueTracker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="Int16" Name="StatusId" Nullable="false" />
+          <Property Type="Int16" Name="PriorityId" Nullable="false" />
+          <Property Type="Int16" Name="CategoryId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="String" Name="Module" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_CategoryId" FromRole="tbl_IssueTracker" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity1" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_PriorityId" FromRole="tbl_IssueTracker" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity2" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Entity_StatusId" FromRole="tbl_IssueTracker" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Project" FromRole="tbl_IssueTracker" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_IssueTrackerAction" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTrackerAction_tbl_IssueTracker" FromRole="tbl_IssueTracker" ToRole="tbl_IssueTrackerAction" />
+          <NavigationProperty Name="tbl_IssueTrackerDocument" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTrackerDocument_tbl_IssueTracker" FromRole="tbl_IssueTracker" ToRole="tbl_IssueTrackerDocument" />
+        </EntityType>
+        <EntityType Name="tbl_IssueTrackerAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IssueTrackerId" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_IssueTracker" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTrackerAction_tbl_IssueTracker" FromRole="tbl_IssueTrackerAction" ToRole="tbl_IssueTracker" />
+        </EntityType>
+        <EntityType Name="tbl_IssueTrackerDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IssueTrackerId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_IssueTracker" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTrackerDocument_tbl_IssueTracker" FromRole="tbl_IssueTrackerDocument" ToRole="tbl_IssueTracker" />
+        </EntityType>
+        <EntityType Name="tbl_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int16" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ClientId" Nullable="false" />
+          <Property Type="Int16" Name="StatusId" Nullable="false" />
+          <Property Type="Int16" Name="TypeId" Nullable="false" />
+          <Property Type="Int32" Name="Manager" />
+          <Property Type="Int32" Name="Approver" />
+          <Property Type="Int32" Name="QA" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="Int16" Name="EstimatedHours" Nullable="false" />
+          <Property Type="Int32" Name="EstimatedCost" />
+          <Property Type="String" Name="PoNo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Site" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <NavigationProperty Name="tbl_ChangeRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_Project" FromRole="tbl_Project" ToRole="tbl_ChangeRequest" />
+          <NavigationProperty Name="tbl_Client" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_Client" FromRole="tbl_Project" ToRole="tbl_Client" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entities_ProjectType" FromRole="tbl_Project" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity1" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_Entity_StatusId" FromRole="tbl_Project" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Incident" Relationship="ITMCServiceCenterModel.FK_tbl_Incident_tbl_Project" FromRole="tbl_Project" ToRole="tbl_Incident" />
+          <NavigationProperty Name="tbl_IssueTracker" Relationship="ITMCServiceCenterModel.FK_tbl_IssueTracker_tbl_Project" FromRole="tbl_Project" ToRole="tbl_IssueTracker" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Approver" FromRole="tbl_Project" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_UserMaster1" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Manager" FromRole="tbl_Project" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_UserMaster2" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_QA" FromRole="tbl_Project" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_ProjectDocument" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectDocument_tbl_Project" FromRole="tbl_Project" ToRole="tbl_ProjectDocument" />
+          <NavigationProperty Name="tbl_ProjectTask" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Project_ProjectId" FromRole="tbl_Project" ToRole="tbl_ProjectTask" />
+          <NavigationProperty Name="tbl_ProjectTaskType" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTaskType_tbl_Project" FromRole="tbl_Project" ToRole="tbl_ProjectTaskType" />
+          <NavigationProperty Name="tbl_ServiceRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project" FromRole="tbl_Project" ToRole="tbl_ServiceRequest" />
+          <NavigationProperty Name="tbl_ServiceRequest1" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project_ProjectId" FromRole="tbl_Project" ToRole="tbl_ServiceRequest" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectDocument_tbl_Project" FromRole="tbl_ProjectDocument" ToRole="tbl_Project" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="Int16" Name="StatusId" Nullable="false" />
+          <Property Type="Int16" Name="PriorityId" Nullable="false" />
+          <Property Type="Int16" Name="TypeId" Nullable="false" />
+          <Property Type="Int32" Name="QA" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="Int16" Name="EstimatedHours" />
+          <Property Type="Int16" Name="EstimatedCost" />
+          <Property Type="Byte" Name="PercentComplete" Nullable="false" />
+          <Property Type="DateTime" Name="QAStartDate" Precision="3" />
+          <Property Type="DateTime" Name="QAEndDate" Precision="3" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_PriorityId" FromRole="tbl_ProjectTask" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity1" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Entity_StatusId" FromRole="tbl_ProjectTask" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_Project_ProjectId" FromRole="tbl_ProjectTask" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_UserMaster_QA" FromRole="tbl_ProjectTask" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_ProjectTaskAction" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTaskAction_tbl_ProjectTask" FromRole="tbl_ProjectTask" ToRole="tbl_ProjectTaskAction" />
+          <NavigationProperty Name="tbl_ProjectTaskDocument" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTaskDocument_tbl_ProjectTask" FromRole="tbl_ProjectTask" ToRole="tbl_ProjectTaskDocument" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectTaskAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProjectTaskId" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_ProjectTask" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTaskAction_tbl_ProjectTask" FromRole="tbl_ProjectTaskAction" ToRole="tbl_ProjectTask" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectTaskDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProjectTaskId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_ProjectTask" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTaskDocument_tbl_ProjectTask" FromRole="tbl_ProjectTaskDocument" ToRole="tbl_ProjectTask" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectTaskType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int16" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTaskType_tbl_Project" FromRole="tbl_ProjectTaskType" ToRole="tbl_Project" />
+        </EntityType>
+        <EntityType Name="tbl_RelatedIssue">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RelatedIssueId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="RelatedIssueId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_ServiceRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RequestedBy" Nullable="false" />
+          <Property Type="Int16" Name="ProjectId" Nullable="false" />
+          <Property Type="Int16" Name="StatusId" Nullable="false" />
+          <Property Type="Int16" Name="PriorityId" Nullable="false" />
+          <Property Type="Int16" Name="PreviousStatusId" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="Int16" Name="EstimatedHours" Nullable="false" />
+          <Property Type="Byte" Name="PercentComplete" Nullable="false" />
+          <Property Type="Int32" Name="PoNo" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="DateTime" Name="RequestedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId" FromRole="tbl_ServiceRequest" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity1" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_PriorityId" FromRole="tbl_ServiceRequest" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity2" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Entity_StatusId" FromRole="tbl_ServiceRequest" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project" FromRole="tbl_ServiceRequest" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_Project1" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_Project_ProjectId" FromRole="tbl_ServiceRequest" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy" FromRole="tbl_ServiceRequest" ToRole="tbl_UserMaster" />
+          <NavigationProperty Name="tbl_ServiceRequestAction" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequestAction_tbl_ServiceRequest" FromRole="tbl_ServiceRequest" ToRole="tbl_ServiceRequestAction" />
+          <NavigationProperty Name="tbl_ServiceRequestDocument" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequestDocument_tbl_ServiceRequest" FromRole="tbl_ServiceRequest" ToRole="tbl_ServiceRequestDocument" />
+        </EntityType>
+        <EntityType Name="tbl_ServiceRequestAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ServiceRequestId" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_ServiceRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequestAction_tbl_ServiceRequest" FromRole="tbl_ServiceRequestAction" ToRole="tbl_ServiceRequest" />
+        </EntityType>
+        <EntityType Name="tbl_ServiceRequestDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ServiceRequestId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_ServiceRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequestDocument_tbl_ServiceRequest" FromRole="tbl_ServiceRequestDocument" ToRole="tbl_ServiceRequest" />
+        </EntityType>
+        <EntityType Name="tbl_Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="RelatedTypeId" Nullable="false" />
+          <Property Type="Int32" Name="RelatedToId" Nullable="false" />
+          <Property Type="Int16" Name="TypeId" Nullable="false" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_Team_tbl_Entity" FromRole="tbl_Team" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_TypeMaster" Relationship="ITMCServiceCenterModel.FK_tbl_Team_tbl_TypeMaster" FromRole="tbl_Team" ToRole="tbl_TypeMaster" />
+          <NavigationProperty Name="tbl_TeamMember" Relationship="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_Team" FromRole="tbl_Team" ToRole="tbl_TeamMember" />
+        </EntityType>
+        <EntityType Name="tbl_TeamMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TeamId" Nullable="false" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="tbl_Team" Relationship="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_Team" FromRole="tbl_TeamMember" ToRole="tbl_Team" />
+          <NavigationProperty Name="tbl_UserMaster" Relationship="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_UserMaster" FromRole="tbl_TeamMember" ToRole="tbl_UserMaster" />
+        </EntityType>
+        <EntityType Name="tbl_TypeMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Byte" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Assignee" Relationship="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId" FromRole="tbl_TypeMaster" ToRole="tbl_Assignee" />
+          <NavigationProperty Name="tbl_Engineer" Relationship="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_TypeMaster" FromRole="tbl_TypeMaster" ToRole="tbl_Engineer" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_Entity_tbl_TypeMaster" FromRole="tbl_TypeMaster" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Team" Relationship="ITMCServiceCenterModel.FK_tbl_Team_tbl_TypeMaster" FromRole="tbl_TypeMaster" ToRole="tbl_Team" />
+        </EntityType>
+        <EntityType Name="tbl_UserMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="DesignationId" Nullable="false" />
+          <Property Type="Int16" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsClient" Nullable="false" />
+          <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+          <NavigationProperty Name="tbl_Assignee" Relationship="ITMCServiceCenterModel.FK_tbl_Assignee_tbl_UserMaster_UserId" FromRole="tbl_UserMaster" ToRole="tbl_Assignee" />
+          <NavigationProperty Name="tbl_ChangeRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_Approver" FromRole="tbl_UserMaster" ToRole="tbl_ChangeRequest" />
+          <NavigationProperty Name="tbl_ChangeRequest1" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter" FromRole="tbl_UserMaster" ToRole="tbl_ChangeRequest" />
+          <NavigationProperty Name="tbl_ChangeRequest2" Relationship="ITMCServiceCenterModel.FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy" FromRole="tbl_UserMaster" ToRole="tbl_ChangeRequest" />
+          <NavigationProperty Name="tbl_Engineer" Relationship="ITMCServiceCenterModel.FK_tbl_Engineers_tbl_UserMaster" FromRole="tbl_UserMaster" ToRole="tbl_Engineer" />
+          <NavigationProperty Name="tbl_Entity" Relationship="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_Entity_RoleId" FromRole="tbl_UserMaster" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Entity1" Relationship="ITMCServiceCenterModel.FK_tbl_UserMaster_tbl_UserMaster_DesignationId" FromRole="tbl_UserMaster" ToRole="tbl_Entity" />
+          <NavigationProperty Name="tbl_Incident" Relationship="ITMCServiceCenterModel.FK_tbl_Incident_tbl_UserMaster_RequestedBy" FromRole="tbl_UserMaster" ToRole="tbl_Incident" />
+          <NavigationProperty Name="tbl_Project" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Approver" FromRole="tbl_UserMaster" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_Project1" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_Manager" FromRole="tbl_UserMaster" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_Project2" Relationship="ITMCServiceCenterModel.FK_tbl_Project_tbl_UserMaster_QA" FromRole="tbl_UserMaster" ToRole="tbl_Project" />
+          <NavigationProperty Name="tbl_ProjectTask" Relationship="ITMCServiceCenterModel.FK_tbl_ProjectTask_tbl_UserMaster_QA" FromRole="tbl_UserMaster" ToRole="tbl_ProjectTask" />
+          <NavigationProperty Name="tbl_ServiceRequest" Relationship="ITMCServiceCenterModel.FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy" FromRole="tbl_UserMaster" ToRole="tbl_ServiceRequest" />
+          <NavigationProperty Name="tbl_TeamMember" Relationship="ITMCServiceCenterModel.FK_tbl_TeamMember_tbl_UserMaster" FromRole="tbl_UserMaster" ToRole="tbl_TeamMember" />
+        </EntityType>
+        <Association Name="FK_tbl_Assignee_tbl_TypeMaster_RelatedTypeId">
+          <End Type="ITMCServiceCenterModel.tbl_TypeMaster" Role="tbl_TypeMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Assignee" Role="tbl_Assignee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TypeMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Assignee">
+              <PropertyRef Name="RelateTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Assignee_tbl_UserMaster_UserId">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Assignee" Role="tbl_Assignee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Assignee">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequest_tbl_Entity_PriorityId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequest">
+              <PropertyRef Name="PriorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequest_tbl_Entity_StatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequest">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequest_tbl_Project">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequest">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequest_tbl_UserMaster_Approver">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="0..1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequest">
+              <PropertyRef Name="Approver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequest_tbl_UserMaster_ChangeWriter">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequest">
+              <PropertyRef Name="ChangeWriter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequest_tbl_UserMaster_RequestedBy">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequest">
+              <PropertyRef Name="RequestedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequestAction_tbl_ChangeRequest">
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequestAction" Role="tbl_ChangeRequestAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ChangeRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequestAction">
+              <PropertyRef Name="ChangeRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ChangeRequestDocument_tbl_ChangeRequest">
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequest" Role="tbl_ChangeRequest" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ChangeRequestDocument" Role="tbl_ChangeRequestDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ChangeRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ChangeRequestDocument">
+              <PropertyRef Name="ChangeRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Project_tbl_Client">
+          <End Type="ITMCServiceCenterModel.tbl_Client" Role="tbl_Client" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Project">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Engineers_tbl_TypeMaster">
+          <End Type="ITMCServiceCenterModel.tbl_TypeMaster" Role="tbl_TypeMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Engineer" Role="tbl_Engineer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TypeMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Engineer">
+              <PropertyRef Name="RelateTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Engineers_tbl_UserMaster">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Engineer" Role="tbl_Engineer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Engineer">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Entity_tbl_TypeMaster">
+          <End Type="ITMCServiceCenterModel.tbl_TypeMaster" Role="tbl_TypeMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TypeMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Entity">
+              <PropertyRef Name="TypeMasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Incident_tbl_Entity_StatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Incident" Role="tbl_Incident" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Incident">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IssueTracker_tbl_Entity_CategoryId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IssueTracker" Role="tbl_IssueTracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IssueTracker">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IssueTracker_tbl_Entity_PriorityId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IssueTracker" Role="tbl_IssueTracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IssueTracker">
+              <PropertyRef Name="PriorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IssueTracker_tbl_Entity_StatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IssueTracker" Role="tbl_IssueTracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IssueTracker">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Project_tbl_Entities_ProjectType">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Project">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Project_tbl_Entity_StatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Project">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTask_tbl_Entity_PriorityId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTask" Role="tbl_ProjectTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTask">
+              <PropertyRef Name="PriorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTask_tbl_Entity_StatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTask" Role="tbl_ProjectTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTask">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequest_tbl_Entity_PreviousStatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="0..1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequest">
+              <PropertyRef Name="PreviousStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequest_tbl_Entity_PriorityId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequest">
+              <PropertyRef Name="PriorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequest_tbl_Entity_StatusId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequest">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Team_tbl_Entity">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Team" Role="tbl_Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Team">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_UserMaster_tbl_Entity_RoleId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserMaster">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_UserMaster_tbl_UserMaster_DesignationId">
+          <End Type="ITMCServiceCenterModel.tbl_Entity" Role="tbl_Entity" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserMaster">
+              <PropertyRef Name="DesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Incident_tbl_Project">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Incident" Role="tbl_Incident" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Incident">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Incident_tbl_UserMaster_RequestedBy">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Incident" Role="tbl_Incident" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Incident">
+              <PropertyRef Name="RequestedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IncidentAction_tbl_Incident">
+          <End Type="ITMCServiceCenterModel.tbl_Incident" Role="tbl_Incident" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IncidentAction" Role="tbl_IncidentAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Incident">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IncidentAction">
+              <PropertyRef Name="IncidentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IncidentDocument_tbl_Incident">
+          <End Type="ITMCServiceCenterModel.tbl_Incident" Role="tbl_Incident" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IncidentDocument" Role="tbl_IncidentDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Incident">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IncidentDocument">
+              <PropertyRef Name="IncidentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IssueTracker_tbl_Project">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IssueTracker" Role="tbl_IssueTracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IssueTracker">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IssueTrackerAction_tbl_IssueTracker">
+          <End Type="ITMCServiceCenterModel.tbl_IssueTracker" Role="tbl_IssueTracker" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IssueTrackerAction" Role="tbl_IssueTrackerAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_IssueTracker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IssueTrackerAction">
+              <PropertyRef Name="IssueTrackerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_IssueTrackerDocument_tbl_IssueTracker">
+          <End Type="ITMCServiceCenterModel.tbl_IssueTracker" Role="tbl_IssueTracker" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_IssueTrackerDocument" Role="tbl_IssueTrackerDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_IssueTracker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_IssueTrackerDocument">
+              <PropertyRef Name="IssueTrackerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Project_tbl_UserMaster_Approver">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="0..1" />
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Project">
+              <PropertyRef Name="Approver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Project_tbl_UserMaster_Manager">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="0..1" />
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Project">
+              <PropertyRef Name="Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Project_tbl_UserMaster_QA">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="0..1" />
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Project">
+              <PropertyRef Name="QA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectDocument_tbl_Project">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectDocument" Role="tbl_ProjectDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectDocument">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTask_tbl_Project_ProjectId">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTask" Role="tbl_ProjectTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTask">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTaskType_tbl_Project">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTaskType" Role="tbl_ProjectTaskType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTaskType">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequest_tbl_Project">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequest">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequest_tbl_Project_ProjectId">
+          <End Type="ITMCServiceCenterModel.tbl_Project" Role="tbl_Project" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequest">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTask_tbl_UserMaster_QA">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="0..1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTask" Role="tbl_ProjectTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTask">
+              <PropertyRef Name="QA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTaskAction_tbl_ProjectTask">
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTask" Role="tbl_ProjectTask" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTaskAction" Role="tbl_ProjectTaskAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProjectTask">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTaskAction">
+              <PropertyRef Name="ProjectTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ProjectTaskDocument_tbl_ProjectTask">
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTask" Role="tbl_ProjectTask" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ProjectTaskDocument" Role="tbl_ProjectTaskDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProjectTask">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ProjectTaskDocument">
+              <PropertyRef Name="ProjectTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequest_tbl_UserMaster_RequestedBy">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequest">
+              <PropertyRef Name="RequestedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequestAction_tbl_ServiceRequest">
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequestAction" Role="tbl_ServiceRequestAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ServiceRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequestAction">
+              <PropertyRef Name="ServiceRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_ServiceRequestDocument_tbl_ServiceRequest">
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequest" Role="tbl_ServiceRequest" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_ServiceRequestDocument" Role="tbl_ServiceRequestDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ServiceRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_ServiceRequestDocument">
+              <PropertyRef Name="ServiceRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Team_tbl_TypeMaster">
+          <End Type="ITMCServiceCenterModel.tbl_TypeMaster" Role="tbl_TypeMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_Team" Role="tbl_Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TypeMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Team">
+              <PropertyRef Name="RelatedTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TeamMember_tbl_Team">
+          <End Type="ITMCServiceCenterModel.tbl_Team" Role="tbl_Team" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_TeamMember" Role="tbl_TeamMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_TeamMember">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TeamMember_tbl_UserMaster">
+          <End Type="ITMCServiceCenterModel.tbl_UserMaster" Role="tbl_UserMaster" Multiplicity="1" />
+          <End Type="ITMCServiceCenterModel.tbl_TeamMember" Role="tbl_TeamMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_TeamMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITMCServiceCenterModelStoreContainer" CdmEntityContainer="ITMCServiceCenter_SQLServer">
+    <EntitySetMapping Name="tbl_Assignee">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Assignee)">
+        <MappingFragment StoreEntitySet="tbl_Assignee">
+          <ScalarProperty Name="RelateTypeId" ColumnName="RelateTypeId" />
+          <ScalarProperty Name="RelatedToId" ColumnName="RelatedToId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ChangeRequest">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ChangeRequest)">
+        <MappingFragment StoreEntitySet="tbl_ChangeRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+          <ScalarProperty Name="Approver" ColumnName="Approver" />
+          <ScalarProperty Name="ChangeWriter" ColumnName="ChangeWriter" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="PercentComplete" ColumnName="PercentComplete" />
+          <ScalarProperty Name="Impact" ColumnName="Impact" />
+          <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+          <ScalarProperty Name="RequestedOn" ColumnName="RequestedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ChangeRequestAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ChangeRequestAction)">
+        <MappingFragment StoreEntitySet="tbl_ChangeRequestAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChangeRequestId" ColumnName="ChangeRequestId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ChangeRequestDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ChangeRequestDocument)">
+        <MappingFragment StoreEntitySet="tbl_ChangeRequestDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChangeRequestId" ColumnName="ChangeRequestId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Client">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Client)">
+        <MappingFragment StoreEntitySet="tbl_Client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Engineer">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Engineer)">
+        <MappingFragment StoreEntitySet="tbl_Engineer">
+          <ScalarProperty Name="RelateTypeId" ColumnName="RelateTypeId" />
+          <ScalarProperty Name="RelatedToId" ColumnName="RelatedToId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Entity">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Entity)">
+        <MappingFragment StoreEntitySet="tbl_Entity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeMasterId" ColumnName="TypeMasterId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Incident">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Incident)">
+        <MappingFragment StoreEntitySet="tbl_Incident">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="PercentComplete" ColumnName="PercentComplete" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="IncidentOn" ColumnName="IncidentOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_IncidentAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_IncidentAction)">
+        <MappingFragment StoreEntitySet="tbl_IncidentAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IncidentId" ColumnName="IncidentId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_IncidentDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_IncidentDocument)">
+        <MappingFragment StoreEntitySet="tbl_IncidentDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IncidentId" ColumnName="IncidentId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_IssueTracker">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_IssueTracker)">
+        <MappingFragment StoreEntitySet="tbl_IssueTracker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_IssueTrackerAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_IssueTrackerAction)">
+        <MappingFragment StoreEntitySet="tbl_IssueTrackerAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IssueTrackerId" ColumnName="IssueTrackerId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_IssueTrackerDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_IssueTrackerDocument)">
+        <MappingFragment StoreEntitySet="tbl_IssueTrackerDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IssueTrackerId" ColumnName="IssueTrackerId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Project">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Project)">
+        <MappingFragment StoreEntitySet="tbl_Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Approver" ColumnName="Approver" />
+          <ScalarProperty Name="QA" ColumnName="QA" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="EstimatedCost" ColumnName="EstimatedCost" />
+          <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ProjectDocument)">
+        <MappingFragment StoreEntitySet="tbl_ProjectDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectTask">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ProjectTask)">
+        <MappingFragment StoreEntitySet="tbl_ProjectTask">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="QA" ColumnName="QA" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="EstimatedCost" ColumnName="EstimatedCost" />
+          <ScalarProperty Name="PercentComplete" ColumnName="PercentComplete" />
+          <ScalarProperty Name="QAStartDate" ColumnName="QAStartDate" />
+          <ScalarProperty Name="QAEndDate" ColumnName="QAEndDate" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectTaskAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ProjectTaskAction)">
+        <MappingFragment StoreEntitySet="tbl_ProjectTaskAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectTaskId" ColumnName="ProjectTaskId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectTaskDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ProjectTaskDocument)">
+        <MappingFragment StoreEntitySet="tbl_ProjectTaskDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectTaskId" ColumnName="ProjectTaskId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectTaskType">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ProjectTaskType)">
+        <MappingFragment StoreEntitySet="tbl_ProjectTaskType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RelatedIssue">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_RelatedIssue)">
+        <MappingFragment StoreEntitySet="tbl_RelatedIssue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RelatedIssueId" ColumnName="RelatedIssueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ServiceRequest">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ServiceRequest)">
+        <MappingFragment StoreEntitySet="tbl_ServiceRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+          <ScalarProperty Name="PreviousStatusId" ColumnName="PreviousStatusId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EstimatedHours" ColumnName="EstimatedHours" />
+          <ScalarProperty Name="PercentComplete" ColumnName="PercentComplete" />
+          <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="RequestedOn" ColumnName="RequestedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ServiceRequestAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ServiceRequestAction)">
+        <MappingFragment StoreEntitySet="tbl_ServiceRequestAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceRequestId" ColumnName="ServiceRequestId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ServiceRequestDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_ServiceRequestDocument)">
+        <MappingFragment StoreEntitySet="tbl_ServiceRequestDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceRequestId" ColumnName="ServiceRequestId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Team">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_Team)">
+        <MappingFragment StoreEntitySet="tbl_Team">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RelatedTypeId" ColumnName="RelatedTypeId" />
+          <ScalarProperty Name="RelatedToId" ColumnName="RelatedToId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TeamMember">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_TeamMember)">
+        <MappingFragment StoreEntitySet="tbl_TeamMember">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TypeMaster">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_TypeMaster)">
+        <MappingFragment StoreEntitySet="tbl_TypeMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserMaster">
+      <EntityTypeMapping TypeName="IsTypeOf(ITMCServiceCenterModel.tbl_UserMaster)">
+        <MappingFragment StoreEntitySet="tbl_UserMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="IsClient" ColumnName="IsClient" />
+          <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

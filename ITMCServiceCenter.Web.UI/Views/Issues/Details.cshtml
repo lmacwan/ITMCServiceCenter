@@ -1,0 +1,102 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.UI
+@using ITMCServiceCenter.Web.Domain
+@{
+    ViewBag.Title = "Issue Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IssueModel
+<script type="text/javascript">
+    function listAll() {
+        var baseUrl = window.location.href;
+        var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+        window.location.href = url.substring(0, url.lastIndexOf('/')) + "/ListAll";
+    }
+</script>
+<h2>Issues</h2>
+<div class="scrollable">
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTitle);
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Issue.Title)
+            @Html.DisplayFor(model => model.Issue.Id)
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Issue.Description)
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Issue.Description)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Issue.CategoryId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Issue.Category)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Issue.ProjectId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Issue.ProjectTitle)
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Issue.EndDate) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Issue.EndDate)
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Issue.PriorityId) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.Issue.Priority)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.Issue.StatusId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Issue.Status)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+                        @Html.LabelFor(model => model.Issue.Module) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.Issue.Module)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label("Actions") : 
+        </div>
+        <div class="col-md-8">
+            @Html.Partial("_ActionsView", Model.ActionsModel)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+        </div>
+        <div class="col-md-8">
+            <input id="btnClose" type="button" value="Close" onclick="javascript: listAll();" />
+        </div>
+    </div>
+</div>

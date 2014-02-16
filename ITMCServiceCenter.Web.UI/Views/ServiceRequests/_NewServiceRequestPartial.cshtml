@@ -1,0 +1,137 @@
+﻿@using ITMCServiceCenter.Web.UI;
+@using Telerik.Web.Mvc.UI;
+@{
+    Layout = null;
+}
+@model ServiceRequestModel
+@Html.Style("~/Content/Shared/Style/Window/window.css")
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", Model.ServiceRequest.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.ServiceRequest.Id > 0 ? "UpdateServiceRequest" : "SaveServiceRequest", "ServiceRequests", FormMethod.Post, new { id = "frmSaveServiceRequest" }))
+    {
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.HiddenFor(model => model.ServiceRequest.CreatedBy, new { @class = "hide" })
+                @Html.HiddenFor(model => model.ServiceRequest.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.ServiceRequest.CreatedOn, new { @class = "hide" })
+                @Html.LabelFor(model => model.ServiceRequest.Title) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.ServiceRequest.Title, new { value = "Title", @class = "wide" })
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.RequestedBy) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ServiceRequest.RequestedBy).BindTo(new SelectList(ServiceRequestModel.Users, "Id", "FirstName")).HtmlAttributes(new { @class = "wide" }).SelectedIndex(0)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.RequestedOn) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.ServiceRequest.RequestedOn).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.Description)
+            </div>
+            <div class="col-md-8">
+                @Html.TextAreaFor(model => model.ServiceRequest.Description, new { value = "Description", @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.ProjectId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ServiceRequest.ProjectId).BindTo(new SelectList(ServiceRequestModel.Projects, "Id", "Title")).HtmlAttributes(new { @class = "wide" }).SelectedIndex(0)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.StatusId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ServiceRequest.StatusId).BindTo(new SelectList(ServiceRequestModel.Statuses, "Id", "Name")).SelectedIndex(0).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.PriorityId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.ServiceRequest.PriorityId).BindTo(new SelectList(ServiceRequestModel.Priorities, "Id", "Name")).SelectedIndex(0)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.StartDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.ServiceRequest.StartDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.EstimatedHours) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.ServiceRequest.EstimatedHours).Spinners(false).Value(10).MinValue(1).EmptyMessage("Enter hours").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.EndDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.ServiceRequest.EndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern).Value(DateTime.Now.AddMonths(5))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.SelectedEngineers) : 
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.SelectedEngineersId, new MultiSelectList(ServiceRequestModel.Users, "Id", "UserFullName"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.ServiceRequest.PercentComplete) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().NumericTextBoxFor(model => model.ServiceRequest.PercentComplete).Spinners(false).Value(0).MinValue(0).EmptyMessage("Enter percent").DecimalDigits(0).NumberGroupSeparator("")
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.TestingTeam.SelectedMembersId, new MultiSelectList(ServiceRequestModel.Users, "Id", "UserFullName", Model.TestingTeam.SelectedMembersId))
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+            </div>
+            <div class="col-md-8">
+                <input id="btnSaveServiceRequest" type="button" value="Save" onclick="javascript: saveServiceRequest();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,106 @@
+﻿@using Telerik.Web.Mvc.UI;
+@using ITMCServiceCenter.Web.Domain;
+@using ITMCServiceCenter.Web.UI;
+@{
+    Layout = null;
+}
+@model IssueModel
+@Html.Style("~/Content/Shared/Style/Window/window.css")
+<div class="span9">
+    @if (@Model != null)
+    {
+        @Html.Partial("MessageRegionPartial", Model.Issue.ModelMessage)
+    }
+</div>
+<div class="scrollable">
+    @using (Html.BeginForm(Model.Issue.Id > 0 ? "UpdateIssue" : "SaveIssue", "Issues", FormMethod.Post, new { id = "frmSaveIssue" }))
+    {
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.HiddenFor(model => model.Issue.CreatedBy  , new { @class = "hide" })
+                @Html.HiddenFor(model => model.Issue.Id, new { @class = "hide" })
+                @Html.HiddenFor(model => model.Issue.CreatedOn, new { @class = "hide" })
+                @Html.LabelFor(model => model.Issue.Title) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Issue.Title, new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.Description)
+            </div>
+            <div class="col-md-8">
+               @Html.TextBoxFor(model => model.Issue.Description, new { @class = "wide" })
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.StatusId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Issue.StatusId).Placeholder("Select Status").BindTo(new SelectList(IssueModel.Statuses, "Id", "Name")).HtmlAttributes(new { @class = "wide" })
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.PriorityId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Issue.PriorityId).BindTo(new SelectList(IssueModel.Priorities, "Id", "Name")).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.CategoryId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Issue.CategoryId).BindTo(new SelectList(IssueModel.Categories, "Id", "Name")).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.EndDate) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().DatePickerFor(model => model.Issue.EndDate).Format(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.ProjectId) : 
+            </div>
+            <div class="col-md-8">
+                @Html.Telerik().ComboBoxFor(model => model.Issue.ProjectId).BindTo(new SelectList(IssueModel.Projects, "Id", "Title")).HtmlAttributes(new { @class = "wide" })
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.LabelFor(model => model.Issue.Module) :
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Issue.Module, new { @class = "wide" })
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+                @Html.Label(ITMCServiceCenter.Web.Domain.Resources.ITMCServiceCenterResource.resTestingTeam) :
+            </div>
+            <div class="col-md-8">
+                @Html.ListBoxFor(model => model.TestingTeam.SelectedMembersId, new MultiSelectList(IssueModel.Users, "Id", "UserFullName", Model.TestingTeam.SelectedMembersId))
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-4 myColPadding">
+            </div>
+            <div class="col-md-8">
+                <input id="btnSaveIssue" type="button" value="Save" onclick="saveIssue();" />
+                &nbsp;
+                <input type="button" value="Cancel" />
+            </div>
+        </div>
+    }
+</div>

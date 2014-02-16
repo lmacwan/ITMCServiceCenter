@@ -1,0 +1,111 @@
+﻿@using Telerik.Web.Mvc.UI
+@using ITMCServiceCenter.Web.UI
+@using ITMCServiceCenter.Web.Domain
+@{
+    ViewBag.Title = "Project Task Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ProjectTaskModel
+<script type="text/javascript">
+    function listAll() {
+        var baseUrl = window.location.href;
+        var url = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
+        window.location.href = url.substring(0, url.lastIndexOf('/')) + "/ListAll";
+    }
+</script>
+<h2>Project Task Details</h2>
+<div class="scrollable">
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.Title) :
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ProjectTask.Title)
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.Description)
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ProjectTask.Description)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.CreatedBy) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ProjectTask.CreatedByName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.CreatedOn) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ProjectTask.CreatedOn)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.ProjectId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ProjectTask.ProjectTitle)
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.EndDate) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ProjectTask.EndDate)
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.PriorityId) : 
+        </div>
+        <div class="col-md-8">
+             @Html.DisplayFor(model => model.ProjectTask.Priority)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.LabelFor(model => model.ProjectTask.StatusId) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ProjectTask.Status)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+                        @Html.LabelFor(model => model.ProjectTask.ModifiedBy) : 
+        </div>
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.ProjectTask.ModifiedByName)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+            @Html.Label("Actions") : 
+        </div>
+        <div class="col-md-8">
+            @Html.Partial("_ActionsView", Model.ActionsModel)
+        </div>
+    </div>
+     
+    <div class="row">
+        <div class="col-md-4 myColPadding">
+        </div>
+        <div class="col-md-8">
+            <input id="btnClose" type="button" value="Close" onclick="javascript: listAll();" />
+        </div>
+    </div>
+</div>

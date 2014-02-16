@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A7CA5C7-E7EC-4A21-B5A6-4896A10D38CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITMCServiceCenter.Web.Domain</RootNamespace>
+    <AssemblyName>ITMCServiceCenter.Web.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assemblers\tbl_Assignee_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ChangeRequestAction_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ChangeRequestDocument_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ChangeRequest_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_Client_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_Engineer_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_Entity_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_IncidentAction_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_IncidentDocument_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_Incident_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_IssueTrackerAction_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_IssueTrackerDocument_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_IssueTracker_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ProjectDocument_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ProjectTaskAction_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ProjectTaskDocument_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ProjectTaskType_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ProjectTask_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_Project_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_RelatedIssue_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ServiceRequestAction_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ServiceRequestDocument_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_ServiceRequest_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_TeamMember_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_Team_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_TypeMaster_Assembler.cs" />
+    <Compile Include="Assemblers\tbl_UserMaster_Assembler.cs" />
+    <Compile Include="Common\IAction.cs" />
+    <Compile Include="Common\IAssignable.cs" />
+    <Compile Include="Common\ITMCServiceCenterApplication.cs" />
+    <Compile Include="Common\Types.cs" />
+    <Compile Include="DerivedDTO\tbl_Assignee_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_Client_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_Engineer_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_Entity_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ProjectTaskType_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_RelatedIssue_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_TeamMember_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_Team_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_TypeMaster_DTO.cs" />
+    <Compile Include="DTO\EntitiesToDTOs.temp.cs" />
+    <Compile Include="DTO\tbl_AssigneeDTO.cs" />
+    <Compile Include="DTO\tbl_ClientDTO.cs" />
+    <Compile Include="DTO\tbl_EngineerDTO.cs" />
+    <Compile Include="DTO\tbl_EntityDTO.cs" />
+    <Compile Include="DTO\tbl_ProjectTaskTypeDTO.cs" />
+    <Compile Include="DTO\tbl_RelatedIssueDTO.cs" />
+    <Compile Include="DTO\tbl_TeamDTO.cs" />
+    <Compile Include="DTO\tbl_TeamMemberDTO.cs" />
+    <Compile Include="DTO\tbl_TypeMasterDTO.cs" />
+    <Compile Include="Utility\AssigneesEqualityComparer.cs" />
+    <Compile Include="Utility\EngineersEqualityComparer.cs" />
+    <Compile Include="Utility\EnumUtility.cs" />
+    <Compile Include="Common\TeamType.cs" />
+    <Compile Include="DerivedDTO\Login.cs" />
+    <Compile Include="DerivedDTO\tbl_ChangeRequestAction_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ChangeRequestDocument_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ChangeRequest_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_IncidentAction_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_IncidentDocument_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_Incident_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_IssueTrackerAction_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_IssueTrackerDocument_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_IssueTracker_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ProjectDocument_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ProjectTaskAction_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ProjectTaskDocument_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ProjectTask_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_Project_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ServiceRequestAction_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ServiceRequestDocument_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_ServiceRequest_DTO.cs" />
+    <Compile Include="DerivedDTO\tbl_UserMaster_DTO.cs" />
+    <Compile Include="Common\CommonModel.cs" />
+    <Compile Include="Common\ErrorCode.cs" />
+    <Compile Include="Common\ServiceResult.cs" />
+    <Compile Include="DTO\tbl_ChangeRequestActionDTO.cs" />
+    <Compile Include="DTO\tbl_ChangeRequestDocumentDTO.cs" />
+    <Compile Include="DTO\tbl_ChangeRequestDTO.cs" />
+    <Compile Include="DTO\tbl_IncidentActionDTO.cs" />
+    <Compile Include="DTO\tbl_IncidentDocumentDTO.cs" />
+    <Compile Include="DTO\tbl_IncidentDTO.cs" />
+    <Compile Include="DTO\tbl_IssueTrackerActionDTO.cs" />
+    <Compile Include="DTO\tbl_IssueTrackerDocumentDTO.cs" />
+    <Compile Include="DTO\tbl_IssueTrackerDTO.cs" />
+    <Compile Include="DTO\tbl_ProjectDocumentDTO.cs" />
+    <Compile Include="DTO\tbl_ProjectDTO.cs" />
+    <Compile Include="DTO\tbl_ProjectTaskActionDTO.cs" />
+    <Compile Include="DTO\tbl_ProjectTaskDocumentDTO.cs" />
+    <Compile Include="DTO\tbl_ProjectTaskDTO.cs" />
+    <Compile Include="DTO\tbl_ServiceRequestActionDTO.cs" />
+    <Compile Include="DTO\tbl_ServiceRequestDocumentDTO.cs" />
+    <Compile Include="DTO\tbl_ServiceRequestDTO.cs" />
+    <Compile Include="DTO\tbl_UserMasterDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ITMCServiceCenterResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITMCServiceCenterResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\TeamMemberEqualityComparer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ITMCServiceCenterResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ITMCServiceCenterResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ITMCServiceCenter.Web.Database\ITMCServiceCenter.Web.Database.csproj">
+      <Project>{C31A742A-F2CE-4E33-9D65-29136E5597E6}</Project>
+      <Name>ITMCServiceCenter.Web.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

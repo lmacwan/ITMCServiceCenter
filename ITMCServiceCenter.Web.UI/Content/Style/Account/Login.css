@@ -1,0 +1,12 @@
+﻿div {
+    color:white;
+    font-weight: bold;
+}
+
+.divOuter {
+    background: url("../../Images/Login/bg-carousel.png") #005599;
+    background-size: 100% 100%;
+    margin : 15% 0%;
+    padding-bottom: 103px;
+    padding-top: 103px;
+}
