@@ -16,6 +16,7 @@ namespace ITMCServiceCenter.Web.Domain
         public CommonModel()
         {
             ModelMessage = new List<ModelMessage>();
+            IsValid = true;
         }
 
         [DataMember(EmitDefaultValue = false)]
