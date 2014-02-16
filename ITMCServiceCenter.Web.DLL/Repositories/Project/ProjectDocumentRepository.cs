@@ -111,6 +111,24 @@ namespace ITMCServiceCenter.Web.DLL
             }
         }
 
+        /// <summary>
+        /// Save document for project to database
+        /// </summary>
+        /// <returns></returns>
+        public int SaveProjectDocument(tbl_ProjectDocumentDTO document)
+        {
+            using (var itmcContext = new ITMCServiceCenter_SQLServer())
+            {
+                var entity = document.ToEntity();
+                itmcContext.tbl_ProjectDocument.Add(entity);
+                if (itmcContext.SaveChanges() > 0)
+                {
+                    return entity.Id;
+                }
+                return -1;
+            }
+        }
+
         #endregion
     }
 }

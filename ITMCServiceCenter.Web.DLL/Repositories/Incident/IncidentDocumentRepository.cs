@@ -80,6 +80,24 @@ namespace ITMCServiceCenter.Web.DLL
             }
         }
 
+        /// <summary>
+        /// Save documents for incident to database
+        /// </summary>
+        /// <returns></returns>
+        public int SaveIncidentDocument(tbl_IncidentDocumentDTO document)
+        {
+            using (var itmcContext = new ITMCServiceCenter_SQLServer())
+            {
+                var entity = document.ToEntity();
+                itmcContext.tbl_IncidentDocument.Add(entity);
+                if (itmcContext.SaveChanges() > 0)
+                {
+                    return entity.Id;
+                }
+                return -1;
+            }
+        }
+
         #endregion
     }
 }

@@ -72,6 +72,9 @@ namespace ITMCServiceCenter.Web.Services
 
         [OperationContract]
         ServiceResult<List<tbl_ProjectDocument_DTO>> GetProjectDocumentByProjectId(short projectId);
+
+        [OperationContract]
+        ServiceResult<int> SaveProjectDocument(tbl_ServiceRequestDocumentDTO document);
         #endregion
         #endregion
 

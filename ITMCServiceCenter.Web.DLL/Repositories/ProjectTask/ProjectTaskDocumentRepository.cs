@@ -31,6 +31,7 @@ namespace ITMCServiceCenter.Web.DLL
                 return result;
             }
         }
+
         /// <summary>
         /// get list of all project task documents based on project task id.
         /// </summary>
@@ -56,6 +57,7 @@ namespace ITMCServiceCenter.Web.DLL
                 return result;
             }
         }
+
         /// <summary>
         /// get specific project task document based on project task document id.
         /// </summary>
@@ -79,6 +81,24 @@ namespace ITMCServiceCenter.Web.DLL
                         Path = projecttaskdocument.Path,
                     }).FirstOrDefault();
                 return result;
+            }
+        }
+
+        /// <summary>
+        /// Save document for project task to database
+        /// </summary>
+        /// <returns></returns>
+        public int SaveProjectTaskDocument(tbl_ProjectTaskDocumentDTO document)
+        {
+            using (var itmcContext = new ITMCServiceCenter_SQLServer())
+            {
+                var entity = document.ToEntity();
+                itmcContext.tbl_ProjectTaskDocument.Add(entity);
+                if (itmcContext.SaveChanges() > 0)
+                {
+                    return entity.Id;
+                }
+                return -1;
             }
         }
 

@@ -86,6 +86,24 @@ namespace ITMCServiceCenter.Web.DLL
                 return result;
             }
         }
+
+        /// <summary>
+        /// Save document for issue to database
+        /// </summary>
+        /// <returns></returns>
+        public int SaveIssueDocument(tbl_IssueTrackerDocumentDTO document)
+        {
+            using (var itmcContext = new ITMCServiceCenter_SQLServer())
+            {
+                var entity = document.ToEntity();
+                itmcContext.tbl_IssueTrackerDocument.Add(entity);
+                if (itmcContext.SaveChanges() > 0)
+                {
+                    return entity.Id;
+                }
+                return -1;
+            }
+        }
         #endregion
     }
 }
